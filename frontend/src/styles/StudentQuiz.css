@@ -1,0 +1,61 @@
+.student-quiz {
+  padding: 1rem 0;
+}
+.join-panel {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.join-panel input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+}
+
+.join-panel button {
+  background-color: #4b6cb7;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.join-panel button:hover {
+  background-color: #375a8a;
+  transform: translateY(-1px);
+}
+
+.error-text {
+  color: #e53e3e;
+  margin-top: 0.25rem;
+}
+
+.quiz-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(780px, 1fr));
+  gap: 1rem;
+}
+
+.quiz-card {
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  width: 100%;
+}
+
+.quiz-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.quiz-card.completed {
+  border-left: 4px solid #48bb78;
+}
+.quiz-card.completed .score {
+  color: #2f855a;
+  font-weight: bold;
+}

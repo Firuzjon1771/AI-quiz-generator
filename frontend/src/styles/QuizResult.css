@@ -1,0 +1,19 @@
+.result-view .question-block.correct-answer {
+  background: #e6faed;
+  border: 2px solid #5ad17e;
+}
+.result-view .question-block.incorrect-answer {
+  background: #ffeaea;
+  border: 2px solid #ff6464;
+}
+.result-view .correct-label {
+  margin-top: 8px;
+  color: #d21e1e;
+  font-weight: 500;
+}
+.score-label {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-left: 10px;
+  color: #1f7f42;
+}

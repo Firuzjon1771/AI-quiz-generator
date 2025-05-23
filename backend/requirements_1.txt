@@ -1,0 +1,8 @@
+transformers==4.39.3
+torch==2.2.0
+spacy==3.7.4
+PyMuPDF==1.24.5  # for PDF parsing
+python-docx==1.1.0  # for DOCX parsing
+click==7.1.2
+typer==0.4.2
+networkx

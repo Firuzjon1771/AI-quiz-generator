@@ -1,0 +1,50 @@
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore virtual environments
+/.venv/
+env/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore environment files
+.env
+.env.*
+
+# Ignore build artifacts
+build/
+dist/
+*.egg-info/
+.venv/lib64
+
+frontend/node_modules/
+backend/__pycache__/
+backend/exports/
+backend/uploads/
+newenv/
+backend/__pycache__/answer_postprocessor.cpython-39.pyc
+backend/__pycache__/question_generation.cpython-39.pyc
+backend/__pycache__/quiz_model.cpython-39.pyc
+backend/__pycache__/quiz_routes.cpython-39.pyc
+backend/__pycache__/student_routes.cpython-39.pyc
+backend/__pycache__/summarizer.cpython-39.pyc
+backend/__pycache__/util_routes.cpython-39.pyc
+frontend/src.zip
+file_list

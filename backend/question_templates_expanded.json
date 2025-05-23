@@ -1,0 +1,1602 @@
+[
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "What are the real-world applications of {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "What are the major security concerns with {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What outcomes can be improved using {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "How is {} used in healthcare or finance?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What metrics are used to evaluate {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "What are the common tools used with {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "How would you future-proof {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are the risks of using {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What is the academic origin of {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "What techniques secure {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "In which scenarios is {} most beneficial?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What are the core principles of {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "How would you define {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What mathematical models apply to {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What are the core principles of {}?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "In what context are both {} and {} used together?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What are the core principles of {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "What techniques secure {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are the risks of using {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "What famous companies use {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "In which scenarios is {} most beneficial?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "Describe the steps required to build {}."
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are the risks of using {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "What vulnerabilities exist in {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What is the academic origin of {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "How does {} align with emerging trends?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Describe a case study involving {}."
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What is the academic origin of {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What should be avoided when working with {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "Describe the steps required to build {}."
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "Why is {} important?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What are the scientific foundations of {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What is {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What challenges arise in deploying {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What are the key advantages of {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What theories underpin {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are the limitations of {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "How does {} impact user privacy?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "In which scenarios is {} most beneficial?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What are the trade-offs in tuning {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "Which principles are derived from {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Which industries benefit most from {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "What are the common tools used with {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What are the scientific foundations of {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are the limitations of {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are common mistakes in using {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "How does {} compare to {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "What programming languages are commonly used with {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What are the trade-offs in tuning {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What mathematical models apply to {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What happens when {} is misconfigured?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "How would you future-proof {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What challenges arise in deploying {}?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "How do {} and {} integrate in enterprise systems?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "Why is {} important?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "Compare the trade-offs between {} and {}."
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What outcomes can be improved using {}?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "How do {} and {} integrate in enterprise systems?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "How can {} be optimized?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "How does {} scale under high load?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What challenges arise in deploying {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What are the trade-offs in tuning {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "How does {} impact user privacy?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What would you improve about {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "How can {} be hardened against attacks?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "What are the common tools used with {}?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "What are the trade-offs between {} and {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "What vulnerabilities exist in {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "What techniques secure {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What ethical issues could arise with {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "How would you future-proof {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "When should you choose {} over {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "What are the major security concerns with {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What affects the performance of {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "When should you choose {} over {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "Describe the steps required to build {}."
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Which industries benefit most from {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Which industries benefit most from {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "What programming languages are commonly used with {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What problems does {} solve?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What are the scientific foundations of {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are the limitations of {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "Which principles are derived from {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What ethical issues could arise with {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "What are the major security concerns with {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What ethical issues could arise with {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "How would you future-proof {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "How can {} be hardened against attacks?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "What famous companies use {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What happens when {} is misconfigured?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What problems does {} solve?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "What are the major security concerns with {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "How can {} be optimized?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "How does {} compare to {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "Which principles are derived from {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What happens when {} is misconfigured?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What happens when {} is misconfigured?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "What are the real-world applications of {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "Explain the concept of {}."
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What are the key advantages of {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "Describe the steps required to build {}."
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "How would you future-proof {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "Which principles are derived from {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What are the key advantages of {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "How does {} compare to {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What are the different types of {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "How does {} scale under high load?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What happens when {} is misconfigured?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "Compare the trade-offs between {} and {}."
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What should be avoided when working with {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "How is {} integrated in modern applications?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "What techniques secure {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "Compare the trade-offs between {} and {}."
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What are the alternatives to {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "What vulnerabilities exist in {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What ethical issues could arise with {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "Explain the concept of {}."
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "What techniques secure {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What are the scientific foundations of {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What theories underpin {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "How can {} be optimized?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Which industries benefit most from {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What problems does {} solve?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "In which scenarios is {} most beneficial?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What metrics are used to evaluate {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What theories underpin {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What are the alternatives to {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What are the trade-offs in tuning {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "How is {} integrated in modern applications?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "Describe the steps required to build {}."
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What metrics are used to evaluate {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What are the scientific foundations of {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "What are the common tools used with {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What is the academic origin of {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "Describe the steps required to build {}."
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What mathematical models apply to {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What affects the performance of {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What affects the performance of {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What are the trade-offs in tuning {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "How can {} be optimized?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "How would you future-proof {}?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "Compare {} and {} in terms of performance."
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Which industries benefit most from {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What is {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "Compare the trade-offs between {} and {}."
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "How do {} and {} integrate in enterprise systems?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are common mistakes in using {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are the risks of using {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What are the key advantages of {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What makes {} better or worse than {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What makes {} better or worse than {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What mathematical models apply to {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What problems does {} solve?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "How does {} align with emerging trends?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "What are the common tools used with {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What challenges arise in deploying {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "What famous companies use {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "How would you define {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What is {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What is {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What are the trade-offs in tuning {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What outcomes can be improved using {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "How can {} be optimized?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What are the scientific foundations of {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "How is {} integrated in modern applications?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What affects the performance of {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What are the different types of {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "How is {} used in healthcare or finance?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What ethical issues could arise with {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "How does {} align with emerging trends?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "What are the trade-offs between {} and {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "What techniques secure {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What are the different types of {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "How does {} impact user privacy?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "What programming languages are commonly used with {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "How does {} impact user privacy?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What outcomes can be improved using {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "Compare the trade-offs between {} and {}."
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "How does {} scale under high load?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "How do you implement {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are the risks of using {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "How does {} scale under high load?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What outcomes can be improved using {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Describe a case study involving {}."
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What is {}?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "In what context are both {} and {} used together?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What outcomes can be improved using {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What is {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "How is {} integrated in modern applications?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "What are the real-world applications of {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What challenges arise in deploying {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "Which principles are derived from {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What would you improve about {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "How do you implement {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What mathematical models apply to {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "How does {} impact user privacy?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "How is {} integrated in modern applications?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "How do you implement {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What should be avoided when working with {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What metrics are used to evaluate {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "Why is {} important?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "How does {} scale under high load?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "In which scenarios is {} most beneficial?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "How would you future-proof {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What are the alternatives to {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "Why is {} important?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What challenges arise in deploying {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "How would you define {}?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "In what context are both {} and {} used together?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What challenges arise in deploying {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "When should you choose {} over {}?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "What are the key differences between {} and {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are the risks of using {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What happens when {} is misconfigured?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Which industries benefit most from {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "How is {} used in healthcare or finance?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are common mistakes in using {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "Which principles are derived from {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What are the scientific foundations of {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What are the alternatives to {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "How is {} used in healthcare or finance?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "How do you implement {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What outcomes can be improved using {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What happens when {} is misconfigured?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "What are the common tools used with {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "Which principles are derived from {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "Describe the steps required to build {}."
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "Compare the trade-offs between {} and {}."
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "In what context are both {} and {} used together?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are the limitations of {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What affects the performance of {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What affects the performance of {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What are the alternatives to {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "Which principles are derived from {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What are the trade-offs in tuning {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What are the trade-offs in tuning {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What are the different types of {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What are the key advantages of {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What challenges arise in deploying {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "When should you choose {} over {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "What famous companies use {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What makes {} better or worse than {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Describe a case study involving {}."
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "Compare the trade-offs between {} and {}."
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "When should you choose {} over {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are the limitations of {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "How does {} compare to {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "What are the major security concerns with {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What are the trade-offs in tuning {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "What programming languages are commonly used with {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What should be avoided when working with {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What should be avoided when working with {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What makes {} better or worse than {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "Why is {} important?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "How would you define {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What mathematical models apply to {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Describe a case study involving {}."
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "Why is {} important?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What are the key advantages of {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "What vulnerabilities exist in {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "How would you future-proof {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "How is {} used in healthcare or finance?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "What are the trade-offs between {} and {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What problems does {} solve?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "How does {} compare to {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "Why is {} important?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What affects the performance of {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "How do you implement {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What metrics are used to evaluate {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are common mistakes in using {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "Explain the concept of {}."
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "How do you implement {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are the limitations of {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What are the scientific foundations of {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Describe a case study involving {}."
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "How does {} compare to {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "How can {} be hardened against attacks?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are the risks of using {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What problems does {} solve?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What is the academic origin of {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "How can {} be hardened against attacks?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "In which scenarios is {} most beneficial?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "How does {} impact user privacy?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "What are the real-world applications of {}?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "What are the trade-offs between {} and {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What makes {} better or worse than {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What is {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Describe a case study involving {}."
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What affects the performance of {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "How does {} scale under high load?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "What programming languages are commonly used with {}?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "What are the trade-offs between {} and {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "When should you choose {} over {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "How does {} impact user privacy?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What would you improve about {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are common mistakes in using {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What metrics are used to evaluate {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are the risks of using {}?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "What are the key differences between {} and {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What is {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What are the alternatives to {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Which industries benefit most from {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What makes {} better or worse than {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What should be avoided when working with {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What are the different types of {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "How is {} integrated in modern applications?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "How does {} align with emerging trends?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What happens when {} is misconfigured?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "What are the key differences between {} and {}?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "Compare {} and {} in terms of performance."
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What theories underpin {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "Which principles are derived from {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "How would you future-proof {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Which industries benefit most from {}?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "What are the key differences between {} and {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "How would you define {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What ethical issues could arise with {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What are the trade-offs in tuning {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "How would you define {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "How does {} align with emerging trends?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What problems does {} solve?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Describe a case study involving {}."
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "Compare {} and {} in terms of performance."
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What are the different types of {}?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "What is the relationship between {} and {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What outcomes can be improved using {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "How does {} scale under high load?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "In what context are both {} and {} used together?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "How does {} compare to {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "What famous companies use {}?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "What is the relationship between {} and {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "Explain the concept of {}."
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "Compare the trade-offs between {} and {}."
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "What famous companies use {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What are the different types of {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What is the academic origin of {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What makes {} better or worse than {}?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "How do {} and {} integrate in enterprise systems?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "How does {} impact user privacy?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What are the core principles of {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What makes {} better or worse than {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What are the alternatives to {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "How would you define {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What are the scientific foundations of {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What is {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "What vulnerabilities exist in {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What should be avoided when working with {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What would you improve about {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What theories underpin {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "What programming languages are commonly used with {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What happens when {} is misconfigured?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "How does {} align with emerging trends?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "How does {} compare to {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What outcomes can be improved using {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What metrics are used to evaluate {}?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "Compare {} and {} in terms of performance."
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "What are the major security concerns with {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "How does {} compare to {}?"
+  },
+  {
+    "Category": "Implementation and Usage",
+    "Template": "How do you implement {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What challenges arise in deploying {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What problems does {} solve?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What are the key advantages of {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What are the different types of {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Describe a case study involving {}."
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "What is the relationship between {} and {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "Which principles are derived from {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What ethical issues could arise with {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What would you improve about {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "How can {} be hardened against attacks?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What are the core principles of {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What are the scientific foundations of {}?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What problems does {} solve?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What are the core principles of {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What theories underpin {}?"
+  },
+  {
+    "Category": "Challenges and Drawbacks",
+    "Template": "What are common mistakes in using {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What are the different types of {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Which industries benefit most from {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "Explain the concept of {}."
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What happens when {} is misconfigured?"
+  },
+  {
+    "Category": "Multi-Topic",
+    "Template": "What are the key differences between {} and {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Which industries benefit most from {}?"
+  },
+  {
+    "Category": "Definition and Explanation",
+    "Template": "What are the different types of {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What are the alternatives to {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "How is {} used in healthcare or finance?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What are the alternatives to {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "Describe a case study involving {}."
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "What are the real-world applications of {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "How does {} impact user privacy?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "What are the alternatives to {}?"
+  },
+  {
+    "Category": "Performance and Optimization",
+    "Template": "What metrics are used to evaluate {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What ethical issues could arise with {}?"
+  },
+  {
+    "Category": "Comparison and Alternatives",
+    "Template": "Compare the trade-offs between {} and {}."
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "What would you improve about {}?"
+  },
+  {
+    "Category": "Advanced Reasoning",
+    "Template": "How does {} align with emerging trends?"
+  },
+  {
+    "Category": "Purpose and Benefits",
+    "Template": "What are the key advantages of {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "What famous companies use {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What is the academic origin of {}?"
+  },
+  {
+    "Category": "Applications and Use Cases",
+    "Template": "What are the real-world applications of {}?"
+  },
+  {
+    "Category": "Theory and Foundations",
+    "Template": "What is the academic origin of {}?"
+  },
+  {
+    "Category": "Security and Privacy",
+    "Template": "How can {} be hardened against attacks?"
+  }
+]

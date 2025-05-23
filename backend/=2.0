@@ -1,0 +1,51 @@
+Collecting spacy<3.8,>=3.7
+  Downloading spacy-3.7.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (27 kB)
+Collecting pydantic
+  Downloading pydantic-2.11.4-py3-none-any.whl.metadata (66 kB)
+Requirement already satisfied: spacy-legacy<3.1.0,>=3.0.11 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (3.0.12)
+Requirement already satisfied: spacy-loggers<2.0.0,>=1.0.0 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (1.0.5)
+Requirement already satisfied: murmurhash<1.1.0,>=0.28.0 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (1.0.12)
+Requirement already satisfied: cymem<2.1.0,>=2.0.2 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (2.0.11)
+Requirement already satisfied: preshed<3.1.0,>=3.0.2 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (3.0.9)
+Requirement already satisfied: thinc<8.3.0,>=8.2.2 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (8.2.5)
+Requirement already satisfied: wasabi<1.2.0,>=0.9.1 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (0.10.1)
+Requirement already satisfied: srsly<3.0.0,>=2.4.3 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (2.5.1)
+Requirement already satisfied: catalogue<2.1.0,>=2.0.6 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (2.0.10)
+Requirement already satisfied: weasel<0.5.0,>=0.1.0 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (0.3.4)
+Requirement already satisfied: typer<1.0.0,>=0.3.0 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (0.4.2)
+Requirement already satisfied: tqdm<5.0.0,>=4.38.0 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (4.67.1)
+Requirement already satisfied: requests<3.0.0,>=2.13.0 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (2.32.3)
+Requirement already satisfied: jinja2 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (2.11.3)
+Requirement already satisfied: setuptools in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (78.1.0)
+Requirement already satisfied: packaging>=20.0 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (24.2)
+Requirement already satisfied: langcodes<4.0.0,>=3.2.0 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (3.5.0)
+Requirement already satisfied: numpy>=1.19.0 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from spacy<3.8,>=3.7) (1.23.5)
+Requirement already satisfied: annotated-types>=0.6.0 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from pydantic) (0.7.0)
+Collecting pydantic-core==2.33.2 (from pydantic)
+  Downloading pydantic_core-2.33.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+Requirement already satisfied: typing-extensions>=4.12.2 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from pydantic) (4.13.1)
+Requirement already satisfied: typing-inspection>=0.4.0 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from pydantic) (0.4.0)
+Requirement already satisfied: language-data>=1.2 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from langcodes<4.0.0,>=3.2.0->spacy<3.8,>=3.7) (1.3.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from requests<3.0.0,>=2.13.0->spacy<3.8,>=3.7) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from requests<3.0.0,>=2.13.0->spacy<3.8,>=3.7) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from requests<3.0.0,>=2.13.0->spacy<3.8,>=3.7) (2.4.0)
+Requirement already satisfied: certifi>=2017.4.17 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from requests<3.0.0,>=2.13.0->spacy<3.8,>=3.7) (2025.1.31)
+Requirement already satisfied: blis<0.8.0,>=0.7.8 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from thinc<8.3.0,>=8.2.2->spacy<3.8,>=3.7) (0.7.11)
+Requirement already satisfied: confection<1.0.0,>=0.0.1 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from thinc<8.3.0,>=8.2.2->spacy<3.8,>=3.7) (0.1.5)
+Requirement already satisfied: click<9.0.0,>=7.1.1 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from typer<1.0.0,>=0.3.0->spacy<3.8,>=3.7) (7.1.2)
+Requirement already satisfied: cloudpathlib<0.17.0,>=0.7.0 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from weasel<0.5.0,>=0.1.0->spacy<3.8,>=3.7) (0.16.0)
+Requirement already satisfied: smart-open<7.0.0,>=5.2.1 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from weasel<0.5.0,>=0.1.0->spacy<3.8,>=3.7) (6.4.0)
+Requirement already satisfied: marisa-trie>=1.1.0 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from language-data>=1.2->langcodes<4.0.0,>=3.2.0->spacy<3.8,>=3.7) (1.2.1)
+Requirement already satisfied: MarkupSafe>=0.23 in /home/firuzjon/.pyenv/versions/3.9.13/lib/python3.9/site-packages (from jinja2->spacy<3.8,>=3.7) (2.0.1)
+Downloading spacy-3.7.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (6.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 4.9 MB/s eta 0:00:00
+Downloading pydantic-2.11.4-py3-none-any.whl (443 kB)
+Downloading pydantic_core-2.33.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 22.5 MB/s eta 0:00:00
+Installing collected packages: pydantic-core, pydantic, spacy
+  Attempting uninstall: pydantic-core
+    Found existing installation: pydantic_core 2.33.1
+    Uninstalling pydantic_core-2.33.1:
+      Successfully uninstalled pydantic_core-2.33.1
+
+Successfully installed pydantic-2.11.4 pydantic-core-2.33.2 spacy-3.7.5

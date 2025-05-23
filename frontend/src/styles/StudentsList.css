@@ -1,0 +1,42 @@
+.students-list {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.list-title {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+.loading {
+  text-align: center;
+  color: #666;
+}
+.error {
+  color: #e3342f;
+}
+.table-wrapper {
+  overflow-x: auto;
+}
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.students-table th,
+.students-table td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+.students-table th {
+  background: #f7f7f7;
+  color: #333;
+}
+.students-table tr:hover {
+  background: #f1f1f1;
+}
+.no-assign td {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+}

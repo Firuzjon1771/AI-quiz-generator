@@ -1,0 +1,27 @@
+.question-list {
+  margin-top: 2rem;
+}
+.ql-heading {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+.ql-list {
+  list-style: none;
+  padding: 0;
+}
+.ql-item {
+  background: #fff;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+.ql-item:hover {
+  transform: translateY(-2px);
+}
+.ql-item p {
+  margin: 0.25rem 0;
+  color: #555;
+}

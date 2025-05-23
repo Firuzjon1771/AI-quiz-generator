@@ -1,0 +1,141 @@
+.results-page {
+  padding: 2rem;
+}
+
+/* ─── Tab buttons ─────────────────────────────────────────────────────────── */
+.tab-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  min-width: 950px;
+}
+
+.tab-buttons button {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #cbd5e0;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.tab-buttons button.active {
+  background: #4b6cb7;
+  color: #fff;
+  border-color: #4b6cb7;
+}
+
+.tab-buttons button:hover {
+  background: #3a5aa8;
+  color: #fff;
+}
+
+/* ─── Results content ─────────────────────────────────────────────────────── */
+.results-view {
+  /* ensure your inner view can grow/shrink normally */
+  display: block;
+}
+.class-list {
+  margin-top: 1rem;
+  display: block;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.class-list button {
+  background: #fff;
+  border: 1px solid #cbd5e0;
+  border-radius: 9999px;
+  padding: 0.3rem 0.8rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  margin-bottom: 1rem;
+  min-width: 200px;
+  min-height: 50px;
+}
+
+.class-list button:hover {
+  background: #f1f5f9;
+}
+
+.class-list button.active,
+.class-list button:focus {
+  background: #4b6cb7;
+  border-color: #4b6cb7;
+  color: #fff;
+}
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #cbd5e0;
+  color: #1a202c;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  margin-bottom: 1rem;
+  min-width: 200px;
+  min-height: 50px;
+  justify-content: center;
+}
+
+.back-button:hover {
+  background: #f1f5f9;
+}
+
+.back-button:active {
+  background: #e2e8f0;
+}
+.student-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.student-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: background-color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.student-card:hover {
+  background-color: #f1f5f9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.student-card:active {
+  background-color: #e2e8f0;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.student-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+  color: #2d3748;
+}
+
+.student-card p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+.student-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
