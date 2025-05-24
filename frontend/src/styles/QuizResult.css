@@ -17,3 +17,28 @@
   margin-left: 10px;
   color: #1f7f42;
 }
+.quiz-card.correct {
+  border-left: 6px solid #30c95d;
+  background: #f2fbf6;
+  box-shadow: 0 2px 8px rgba(70, 190, 100, 0.06);
+}
+
+.quiz-card.incorrect {
+  border-left: 6px solid #ea4d3d;
+  background: #fff2f2;
+  box-shadow: 0 2px 8px rgba(220, 70, 80, 0.07);
+}
+
+.correct-label {
+  margin-top: 0.4rem;
+  font-weight: 600;
+  color: #ea4d3d;
+  font-size: 1.01rem;
+}
+
+.mc-option-disabled {
+  display: flex;
+  align-items: center;
+  gap: 0.33em;
+  margin-bottom: 0.12em;
+}

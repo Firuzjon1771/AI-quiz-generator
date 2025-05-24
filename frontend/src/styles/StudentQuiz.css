@@ -59,3 +59,43 @@
   color: #2f855a;
   font-weight: bold;
 }
+.score-red {
+  color: #e53e3e !important; /* Red */
+  font-weight: bold;
+}
+.score-gray {
+  color: #a0aec0 !important; /* Gray */
+  font-weight: bold;
+}
+.score-blue {
+  color: #4299e1 !important; /* Blue */
+  font-weight: bold;
+}
+.score-yellow {
+  color: #ecc94b !important; /* Yellow */
+  font-weight: bold;
+}
+.score-green {
+  color: #2f855a !important; /* Green */
+  font-weight: bold;
+}
+.submitted-date {
+  cursor: help;
+  text-decoration: underline dotted #6b7280 1.5px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.custom-tooltip .tooltip-content {
+  display: block; /* always for this version */
+  background: #1a202c;
+  color: #fff;
+  padding: 6px 13px;
+  border-radius: 7px;
+  font-size: 0.93rem;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(30, 30, 70, 0.14);
+  animation: fadeIn 0.2s;
+  pointer-events: none;
+  max-width: 150px;
+}

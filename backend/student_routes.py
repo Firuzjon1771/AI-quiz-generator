@@ -47,13 +47,21 @@ def register_student_routes(app):
     c.execute("""
         CREATE TABLE IF NOT EXISTS classes(
             id TEXT PRIMARY KEY,
-            name TEXT NOT NULL
+            name TEXT NOT NULL, 
+            teacher_id TEXT
         )
     """)
     c.execute("""
         CREATE TABLE IF NOT EXISTS students(
-            student_id TEXT PRIMARY KEY
-            -- other columns to be added below
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            student_id TEXT UNIQUE NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            name TEXT,
+            surname TEXT,
+            email TEXT,
+            class_id TEXT,  -- nullable, no DEFAULT
+            role TEXT DEFAULT 'student',
+            password TEXT
         )
     """)
     c.execute("""
@@ -62,22 +70,10 @@ def register_student_routes(app):
         name       TEXT,
         surname    TEXT,
         email      TEXT,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+        password TEXT
       )
-    """)
-    cols = [row[1] for row in c.execute("PRAGMA table_info(students)").fetchall()]
-    if 'name' not in cols:
-        c.execute("ALTER TABLE students ADD COLUMN name TEXT")                
-    if 'surname' not in cols:
-        c.execute("ALTER TABLE students ADD COLUMN surname TEXT")              
-    if 'email' not in cols:
-        c.execute("ALTER TABLE students ADD COLUMN email TEXT")              
-    if 'class_id' not in cols:
-        c.execute("ALTER TABLE students ADD COLUMN class_id TEXT DEFAULT 'A'")
-
-    for cls_id, cls_name in [('A','Class A'),('B','Class B'),('C','Class C'),('D','Class D')]:
-        c.execute("INSERT OR IGNORE INTO classes(id,name) VALUES(?,?)",(cls_id,cls_name))
-    c.execute("UPDATE students SET class_id = 'A' WHERE class_id IS NULL OR class_id = ''")   
+    """) 
     conn.commit()
     conn.close()
     # -------------------------------------------------------
@@ -87,15 +83,16 @@ def register_student_routes(app):
         data = request.json or {}
         user = data.get("username")
         role = data.get("role")
+        password = data.get("password") or ""
         db = get_db()
         if role == "student":
             r = db.execute(
-                "SELECT 1 FROM students WHERE student_id = ?",
+                "SELECT password FROM students WHERE student_id = ?",
                 (user,),
             ).fetchone()
         elif role == "teacher":
             r = db.execute(
-                "SELECT 1 FROM teachers WHERE teacher_id = ?",
+                "SELECT password FROM teachers WHERE teacher_id = ?",
                 (user,),
             ).fetchone()
         else:
@@ -103,6 +100,9 @@ def register_student_routes(app):
 
         if not r:
             return jsonify({"error": "User not found"}), 404
+        # Password check
+        if (r["password"] or "123") != password:
+            return jsonify({"error": "Invalid password"}), 401
         return jsonify({"username": user, "role": role})
 
     @app.route("/api/student/register", methods=["POST"])
@@ -113,20 +113,22 @@ def register_student_routes(app):
         surname  = data.get("surname")
         email    = data.get("email")
         class_id = data.get("class_id")
-        if not all([sid, name, surname, email, class_id]):
+        password = data.get("password") 
+        if not all([sid, name, surname, email, password]):
             return jsonify({"error": "Missing fields"}), 400
         db = get_db()
         db.execute(
             """
-            INSERT INTO students(student_id,name,surname,email,class_id)
-            VALUES(?,?,?,?,?)
+            INSERT INTO students(student_id,name,surname,email,class_id, password)
+            VALUES(?,?,?,?,?,?)
             ON CONFLICT(student_id) DO UPDATE SET
               name=excluded.name,
               surname=excluded.surname,
               email=excluded.email,
-              class_id=excluded.class_id
+              class_id=excluded.class_id,
+              password=excluded.password
             """,
-            (sid, name, surname, email, class_id),
+            (sid, name, surname, email, class_id, password),
         )
         db.commit()
         row = db.execute(
@@ -142,19 +144,23 @@ def register_student_routes(app):
         name    = data.get("name")
         surname = data.get("surname")
         email   = data.get("email")
-        if not all([tid, name, surname, email]):
+        password = data.get("password") 
+
+        if not all([tid, name, surname, email, password]):
             return jsonify({"error": "Missing fields"}), 400
         db = get_db()
         db.execute(
             """
-            INSERT INTO teachers(teacher_id,name,surname,email)
-            VALUES(?,?,?,?)
+            INSERT INTO teachers(teacher_id,name,surname,email, password)
+            VALUES(?,?,?,?,?)
             ON CONFLICT(teacher_id) DO UPDATE SET
               name=excluded.name,
               surname=excluded.surname,
-              email=excluded.email
+              email=excluded.email,
+              password=excluded.password
+
             """,
-            (tid, name, surname, email),
+            (tid, name, surname, email, password),
         )
         db.commit()
         row = db.execute(
@@ -426,3 +432,108 @@ def register_student_routes(app):
             "questions":     qs
             })
         return jsonify(out)
+    @app.route("/api/teacher/<teacher_id>/classes", methods=["POST"])
+    def add_class_for_teacher(teacher_id):
+        data = request.json or {}
+        class_name = data.get("name")
+        if not class_name:
+            return jsonify({"error": "Missing class name"}), 400
+        db = get_db()
+        # Allow duplicate class names per teacher
+        c_id = f"{class_name}".replace(" ", "_")
+        db.execute(
+            "INSERT INTO classes(id, name, teacher_id) VALUES (?, ?, ?)",
+            (c_id, class_name, teacher_id),
+        )
+        db.commit()
+        return jsonify({"id": c_id, "name": class_name, "teacher_id": teacher_id}), 201
+    @app.route("/api/teacher/<teacher_id>/classes", methods=["GET"])
+    def get_teacher_classes(teacher_id):
+        db = get_db()
+        rows = db.execute(
+            "SELECT id, name FROM classes WHERE teacher_id=?",
+            (teacher_id,)
+        ).fetchall()
+        return jsonify([{"id": r["id"], "name": r["name"]} for r in rows])
+    @app.route("/api/classes/<class_id>/add_student", methods=["POST"])
+    def add_student_to_class(class_id):
+        data = request.json or {}
+        student_id = data.get("student_id")
+        if not student_id:
+            return jsonify({"error": "Missing student_id"}), 400
+        db = get_db()
+        # Only allow adding students with no class
+        row = db.execute(
+            "SELECT class_id FROM students WHERE student_id=?", (student_id,)
+        ).fetchone()
+        if not row:
+            return jsonify({"error": "Student not found"}), 404
+        if row["class_id"]:
+            return jsonify({"error": "Student already in a class"}), 400
+        db.execute(
+            "UPDATE students SET class_id=? WHERE student_id=?",
+            (class_id, student_id),
+        )
+        db.commit()
+        return jsonify({"status": "added"}), 200
+    @app.route("/api/classes/<class_id>/remove_student", methods=["POST"])
+    def remove_student_from_class(class_id):
+        data = request.json or {}
+        student_id = data.get("student_id")
+        if not student_id:
+            return jsonify({"error": "Missing student_id"}), 400
+        db = get_db()
+        db.execute(
+            "UPDATE students SET class_id=NULL WHERE student_id=? AND class_id=?",
+            (student_id, class_id),
+        )
+        db.commit()
+        return jsonify({"status": "removed"}), 200
+    @app.route("/api/classes/<class_id>", methods=["DELETE"])
+    def delete_class(class_id):
+        db = get_db()
+        db.execute("UPDATE students SET class_id=NULL WHERE class_id=?", (class_id,))
+        db.execute("DELETE FROM classes WHERE id=?", (class_id,))
+        db.commit()
+        return jsonify({"status": "deleted"}), 200
+    @app.route("/api/students/no_class", methods=["GET"])
+    def get_students_no_class():
+        db = get_db()
+        rows = db.execute(
+            "SELECT student_id, name, surname, email FROM students WHERE class_id IS NULL OR class_id = ''"
+        ).fetchall()
+        return jsonify([
+            {
+                "student_id": r["student_id"],
+                "name": r["name"],
+                "surname": r["surname"],
+                "email": r["email"]
+            }
+            for r in rows
+        ])
+    @app.route("/api/classes/<class_id>/performance", methods=["GET"])
+    def class_performance(class_id):
+        db = get_db()
+        rows = db.execute(
+            """
+            SELECT a.status, a.due_at, a.submitted_at
+            FROM assignments a
+            JOIN students s ON s.student_id = a.student_id
+            WHERE s.class_id = ?
+            """,
+            (class_id,)
+        ).fetchall()
+
+        # Build quiz-like objects
+        quizzes = []
+        for r in rows:
+            quizzes.append({
+                "status": r["status"],
+                "due_at": r["due_at"],
+                "submitted_at": r["submitted_at"],
+            })
+        return jsonify(quizzes)
+
+
+
+

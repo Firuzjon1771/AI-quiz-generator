@@ -41,6 +41,16 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
   }, []);
   const builtInTopics = Object.keys(builtInMap);
 
+  function ProgressBar({ loading }) {
+    return loading ? (
+      <div className="progress-bar-container">
+        <div className="progress-bar-anim" />
+        <span className="progress-bar-label">
+          Generating questions... please wait
+        </span>
+      </div>
+    ) : null;
+  }
   // compute which “topic” is active
   const effectiveTopic = (() => {
     if (topicJsonMap) return selectedJsonTopic;
@@ -253,6 +263,7 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
               <label>Topic</label>
               <input
                 type="text"
+                className="stylish-input"
                 placeholder="Enter topic name"
                 disabled={loading || topicJsonMap}
                 value={manualTopic}
@@ -305,7 +316,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
           </>
         )}
 
-        {/* Keywords multi-select */}
         {!autoDetectTopic && effectiveTopic && (
           <div className="setting keyword-block">
             {isNewTopic && !isJsonBranch && (
@@ -314,11 +324,23 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
               </p>
             )}
 
-            {/* ───── checkbox grid ───── */}
+            {/* ───── Modern keyword block ───── */}
+            <label className="keyword-title">Pick keywords</label>
+
             {availableKeywords.length > 0 && (
               <>
-                <label>Pick keywords</label>
-                <div className="keyword-list">
+                <div className="keyword-toolbar">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedKeywords([...availableKeywords])}
+                  >
+                    Select All
+                  </button>
+                  <button type="button" onClick={() => setSelectedKeywords([])}>
+                    Clear All
+                  </button>
+                </div>
+                <div className="keyword-list-grid">
                   {availableKeywords.map((kw) => (
                     <label key={kw} className="keyword-item">
                       <input
@@ -336,24 +358,14 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
                     </label>
                   ))}
                 </div>
-                <div className="btn-group">
-                  <button
-                    type="button"
-                    onClick={() => setSelectedKeywords([...availableKeywords])}
-                  >
-                    Select All
-                  </button>
-                  <button type="button" onClick={() => setSelectedKeywords([])}>
-                    Clear All
-                  </button>
-                </div>
               </>
             )}
 
             {/* ───── custom keyword adder ───── */}
-            <div className="custom-keyword">
+            <div className="custom-keyword-row">
               <input
                 type="text"
+                className="stylish-input"
                 placeholder="Add custom keyword"
                 disabled={loading}
                 value={customKeyword}
@@ -427,9 +439,10 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
+      <ProgressBar loading={loading} />
 
       <button type="submit" className="upload-btn" disabled={loading}>
-        {loading ? <Spinner /> : "Generate"}
+        Generate
       </button>
     </form>
   );

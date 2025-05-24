@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ClassesView from "./ClassView";
 import StudentsView from "./StudentsView";
 import "../styles/Results.css";
-export default function Results() {
+export default function Results({ user }) {
   const [view, setView] = useState("classes");
 
   return (
@@ -23,7 +23,11 @@ export default function Results() {
         </button>
       </div>
       <div className="results-view">
-        {view === "classes" ? <ClassesView /> : <StudentsView />}
+        {view === "classes" ? (
+          <ClassesView teacherId={user.username} />
+        ) : (
+          <StudentsView />
+        )}
       </div>
     </div>
   );

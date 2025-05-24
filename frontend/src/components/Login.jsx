@@ -7,6 +7,10 @@ import {
   FaEnvelope,
   FaUserGraduate,
   FaChalkboardTeacher,
+  FaIdBadge,
+  FaSignature,
+  FaUserTag,
+  FaLock,
 } from "react-icons/fa";
 
 export default function Login({ onLogin }) {
@@ -16,17 +20,22 @@ export default function Login({ onLogin }) {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
-  const [classId, setClassId] = useState("A");
+  const [classId, setClassId] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
     if (!username.trim()) return setError("Username is required");
     setLoading(true);
     setError("");
     try {
-      const res = await axios.post("/api/auth/login", { username, role });
+      const res = await axios.post("/api/auth/login", {
+        username,
+        role,
+        password,
+      });
       onLogin(res.data);
       navigate(role === "teacher" ? "/dashboard" : "/quiz", { replace: true });
     } catch (err) {
@@ -89,6 +98,7 @@ export default function Login({ onLogin }) {
         name,
         surname,
         email,
+        password,
         ...(role === "student" && { class_id: classId }),
       };
       const res = await axios.post(`/api/${role}/register`, payload);
@@ -255,11 +265,21 @@ export default function Login({ onLogin }) {
               disabled={loading}
             />
           </div>
-
+          <div className="input-icon">
+            <FaLock />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={loading}
+            />
+          </div>
           {mode === "register" && (
             <>
               <div className="input-icon">
-                <FaUser />
+                <FaIdBadge />
+
                 <input
                   type="text"
                   placeholder="First Name"
@@ -269,7 +289,7 @@ export default function Login({ onLogin }) {
                 />
               </div>
               <div className="input-icon">
-                <FaUser />
+                <FaUserTag />
                 <input
                   type="text"
                   placeholder="Last Name"
@@ -288,19 +308,6 @@ export default function Login({ onLogin }) {
                   disabled={loading}
                 />
               </div>
-              {role === "student" && (
-                <select
-                  className="login-select"
-                  value={classId}
-                  onChange={(e) => setClassId(e.target.value)}
-                  disabled={loading}
-                >
-                  <option value="A">Class A</option>
-                  <option value="B">Class B</option>
-                  <option value="C">Class C</option>
-                  <option value="D">Class D</option>
-                </select>
-              )}
             </>
           )}
 

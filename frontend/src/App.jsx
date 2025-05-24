@@ -124,7 +124,7 @@ const App = () => {
                 path="/results/*"
                 element={
                   user.role === "teacher" ? (
-                    <Results />
+                    <Results user={user} />
                   ) : (
                     <Navigate to="/dashboard" replace />
                   )

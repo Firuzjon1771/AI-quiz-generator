@@ -1,0 +1,224 @@
+.class-list {
+  max-width: 600px;
+  margin: 2.5rem auto;
+  background: #fcfcfc;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 28px rgba(50, 70, 130, 0.06);
+}
+.class-list h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: #334e68;
+}
+.class-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #f7fafc;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 1px 5px rgba(80, 100, 170, 0.07);
+  transition: box-shadow 0.18s;
+}
+.class-card:hover {
+  box-shadow: 0 4px 18px rgba(80, 100, 170, 0.11);
+  background: #e7f3ff;
+}
+.class-card > button:first-child {
+  flex: 1;
+  text-align: left;
+  font-size: 1.08rem;
+  background: none;
+  border: none;
+  font-weight: 600;
+  color: #22577a;
+  cursor: pointer;
+  transition: color 0.19s;
+}
+.class-card > button:first-child:hover {
+  color: #0063a5;
+  text-decoration: underline;
+}
+.delete-class-btn {
+  background: #f44336 !important;
+  color: #fff !important;
+  font-weight: 700;
+  border: none !important;
+  padding: 0.56rem 1.19rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.04rem;
+  margin-left: 0.4rem;
+  box-shadow: 0 2px 8px #f4433633;
+  transition: background 0.18s, transform 0.11s;
+  display: inline-block;
+}
+.delete-class-btn:hover {
+  background: #b71c1c !important;
+  transform: scale(1.06);
+}
+
+input[placeholder="New class name"] {
+  width: 66%;
+  font-size: 1rem;
+  padding: 0.52rem 0.8rem;
+  border-radius: 7px;
+  border: 1px solid #b4bdf0;
+  margin-bottom: 0.8rem;
+  background: #f5f7fe;
+  margin-right: 0.7rem;
+}
+.class-list-button {
+  background: #28c76f !important;
+  color: #fff !important;
+  font-weight: 700;
+  border: none !important;
+  border-radius: 8px;
+  padding: 0.62rem 1.3rem;
+  font-size: 1.11rem;
+  cursor: pointer;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 8px #28c76f33;
+  transition: background 0.18s, transform 0.11s;
+  display: inline-block;
+}
+.class-list-button:hover {
+  background: #19a64c !important;
+  transform: scale(1.06);
+}
+
+.student-list {
+  margin: 2.2rem 0 1.2rem 0;
+}
+.student-list h2 {
+  font-size: 1.23rem;
+  margin-bottom: 1.05rem;
+  color: #495e7b;
+}
+.student-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f4f9ff;
+  border: 1.5px solid #e5eaf7;
+  border-radius: 8px;
+  padding: 0.85rem 1.12rem;
+  margin-bottom: 0.85rem;
+  font-size: 1.03rem;
+  color: #28435c;
+  transition: box-shadow 0.16s, background 0.18s;
+}
+.student-card:hover {
+  background: #e3effc;
+  box-shadow: 0 2px 8px rgba(90, 120, 170, 0.07);
+}
+.remove-btn {
+  background: #e53e3e;
+  color: #fff;
+  border: none;
+  padding: 0.38rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  margin-right: 0.53rem;
+  cursor: pointer;
+  transition: background 0.16s, transform 0.08s;
+}
+.remove-btn:hover {
+  background: #af2222;
+  transform: scale(1.07);
+}
+.details-btn {
+  background: #4756e6;
+  color: #fff;
+  border: none;
+  padding: 0.38rem 0.95rem;
+  border-radius: 6px;
+  font-size: 0.97rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.13s, transform 0.08s;
+}
+.details-btn:hover {
+  background: #2c3387;
+  transform: scale(1.07);
+}
+.add-student-section {
+  margin-top: 2rem;
+  padding: 1.4rem 1.2rem;
+  background: #f8fbff;
+  border-radius: 9px;
+  box-shadow: 0 2px 10px rgba(80, 140, 220, 0.05);
+  max-width: 390px;
+}
+.add-student-section h3 {
+  font-size: 1.07rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  color: #22577a;
+}
+.add-student-section select {
+  width: 100%;
+  padding: 0.55rem 1rem;
+  margin-bottom: 0.7rem;
+  font-size: 1.01rem;
+  border-radius: 7px;
+  border: 1.5px solid #b4bdf0;
+  background: #f4f6fb;
+}
+.add-student-section button {
+  background: #38a169;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.55rem 1.18rem;
+  font-weight: 600;
+  font-size: 1.03rem;
+  cursor: pointer;
+  transition: background 0.16s, transform 0.09s;
+}
+.add-student-section button:disabled {
+  background: #b8e5ca;
+  color: #f7fafc;
+  cursor: not-allowed;
+}
+.add-student-section button:not(:disabled):hover {
+  background: #227842;
+  transform: translateY(-2px) scale(1.06);
+}
+.back-button {
+  background: #a0aec0;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 0.44rem 1.05rem;
+  font-weight: 600;
+  margin-bottom: 1.7rem;
+  cursor: pointer;
+  transition: background 0.14s, transform 0.07s;
+}
+.back-button:hover {
+  background: #4a5568;
+  transform: scale(1.03);
+}
+.student-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* existing styles... */
+}
+
+.student-info {
+  flex: 1;
+  font-size: 1rem;
+}
+
+.student-actions {
+  display: flex;
+  gap: 0.7rem;
+  min-width: 185px; /* ensures the buttons are always aligned in a column */
+  justify-content: flex-end;
+}

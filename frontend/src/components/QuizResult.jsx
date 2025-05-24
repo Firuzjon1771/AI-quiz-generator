@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-import "../styles/QuizTake.css";
+import "../styles/QuizResult.css";
 
 export default function QuizResult() {
   const { assignmentId } = useParams();
@@ -26,106 +26,176 @@ export default function QuizResult() {
   if (error) return <p className="error">{error}</p>;
   if (!quiz) return null;
 
-  const { questions, answers, title, score } = quiz;
-
-  const getStudentAnswer = (idx) =>
-    answers[idx] !== undefined ? answers[idx] : "";
-
-  function isCorrect(idx, q) {
-    let correct;
-    if (Array.isArray(q) && q.length > 1) correct = q[1];
-    else if (q.answer !== undefined) correct = q.answer;
-    else correct = "";
-    return (
-      String(getStudentAnswer(idx)).trim().toLowerCase() ===
-      String(correct).trim().toLowerCase()
-    );
-  }
+  const { questions, answers, title, score } = quiz || {};
+  const hasAnswers =
+    answers && typeof answers === "object" && Object.keys(answers).length > 0;
 
   function getCorrectAnswer(q) {
     if (Array.isArray(q) && q.length > 1) return q[1];
     if (q.answer !== undefined) return q.answer;
     return "";
   }
+  function getStudentAnswer(idx) {
+    return answers && answers[idx] !== undefined ? answers[idx] : "";
+  }
+  function isCorrect(idx, q) {
+    const correct = getCorrectAnswer(q);
+    return (
+      String(getStudentAnswer(idx)).trim().toLowerCase() ===
+      String(correct).trim().toLowerCase()
+    );
+  }
 
   return (
-    <div className="quiz-take result-view">
-      <h2 className="quiz-title">
-        {title} <span className="score-label">Score: {score}</span>
+    <div className="student-quiz result-view">
+      <h2 style={{ marginBottom: 8 }}>
+        {title}{" "}
+        {hasAnswers && (
+          <span style={{ fontSize: 22, color: "#22577a" }}>Score: {score}</span>
+        )}
       </h2>
-      <button
-        className="btn primary"
-        style={{ marginBottom: 18 }}
-        onClick={() => navigate(-1)}
-      >
+      <button className="btn preview-btn" onClick={() => navigate(-1)}>
         Back
       </button>
-      <form className="quiz-form" onSubmit={(e) => e.preventDefault()}>
+      <div className="quiz-list">
         {questions.map((q, idx) => {
-          const studentAnswer = getStudentAnswer(idx);
-          const correct = isCorrect(idx, q);
+          const questionText = Array.isArray(q)
+            ? q[0]
+            : q.type === "mc"
+            ? q.question
+            : q.question;
+          const isMC = q.type === "mc";
+          const options = isMC ? q.options : [];
           const correctAnswer = getCorrectAnswer(q);
 
-          // highlighting
-          let qClass = correct
-            ? "question-block correct-answer"
-            : "question-block incorrect-answer";
-          let questionText,
-            options = [];
-          const isMC = q.type === "mc";
-          if (Array.isArray(q)) questionText = q[0];
-          else if (isMC) {
-            questionText = q.question;
-            options = q.options;
-          } else questionText = q.question;
+          if (!hasAnswers) {
+            // No student answers: show only quiz and correct answers, no highlight
+            return (
+              <div
+                key={idx}
+                className="quiz-card"
+                style={{ borderLeft: "4px solid #cbd5e1" }}
+              >
+                <p>
+                  <strong>Q{idx + 1}:</strong> {questionText}
+                </p>
+                {isMC ? (
+                  <div>
+                    {options.map((opt, i) => {
+                      const val = typeof opt === "string" ? opt : opt.text;
+                      return (
+                        <div key={i} className="mc-option-disabled">
+                          <input type="checkbox" disabled readOnly />
+                          <span>
+                            <strong>{String.fromCharCode(65 + i)}.</strong>{" "}
+                            {val}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <input
+                    type="text"
+                    value=""
+                    disabled
+                    readOnly
+                    style={{ background: "#f8f9fa" }}
+                  />
+                )}
+                <div className="correct-label" style={{ color: "#334e68" }}>
+                  Correct answer: <b>{correctAnswer}</b>
+                </div>
+              </div>
+            );
+          }
+
+          // Student has answers
+          const studentAnswer = getStudentAnswer(idx);
+          const correct = isCorrect(idx, q);
+
+          let cardClass = "quiz-card";
+          if (correct) cardClass += " correct";
+          else cardClass += " incorrect";
 
           return (
-            <div key={idx} className={qClass}>
+            <div key={idx} className={cardClass}>
               <p>
                 <strong>Q{idx + 1}:</strong> {questionText}
               </p>
               {isMC ? (
-                <div className="mc-options">
+                <div>
                   {options.map((opt, i) => {
                     const val = typeof opt === "string" ? opt : opt.text;
                     const checked = studentAnswer === val;
+                    // Show which answer student picked by checkbox
                     return (
-                      <label key={i} className="radio-option">
+                      <div key={i} className="mc-option-disabled">
                         <input
                           type="checkbox"
-                          name={`q${idx}-${i}`}
-                          value={val}
                           checked={checked}
                           disabled
                           readOnly
                         />
-                        <div className="option-label">
+                        <span>
                           <strong>{String.fromCharCode(65 + i)}.</strong> {val}
-                        </div>
-                      </label>
+                          {checked && (
+                            <span
+                              style={{
+                                fontWeight: "bold",
+                                color: correct ? "#14b75a" : "#ea4d3d",
+                                marginLeft: "0.5em",
+                                fontSize: "0.97em",
+                              }}
+                            >
+                              {correct
+                                ? " (Your answer ✔)"
+                                : " (Your answer ✘)"}
+                            </span>
+                          )}
+                        </span>
+                      </div>
                     );
                   })}
                 </div>
               ) : (
-                <input
-                  type="text"
-                  value={studentAnswer}
-                  disabled
-                  readOnly
-                  style={{ background: "#f8f9fa" }}
-                />
+                <div style={{ marginTop: 8, marginBottom: 2 }}>
+                  <input
+                    type="text"
+                    value={studentAnswer}
+                    disabled
+                    readOnly
+                    style={{
+                      background: "#f8f9fa",
+                      border:
+                        !correct && studentAnswer
+                          ? "2px solid #ff6464"
+                          : "1.5px solid #b8c9e4",
+                      color: !correct && studentAnswer ? "#c90d0d" : "#222",
+                      fontWeight: studentAnswer ? 600 : 400,
+                    }}
+                  />
+                  <span
+                    style={{
+                      marginLeft: "0.8em",
+                      fontWeight: 600,
+                      color: correct ? "#14b75a" : "#ea4d3d",
+                    }}
+                  >
+                    {studentAnswer &&
+                      (correct ? "(Your answer ✔)" : "(Your answer ✘)")}
+                  </span>
+                </div>
               )}
               {!correct && (
                 <div className="correct-label">
-                  <span>
-                    Correct answer: <b>{correctAnswer}</b>
-                  </span>
+                  Correct answer: <b>{correctAnswer}</b>
                 </div>
               )}
             </div>
           );
         })}
-      </form>
+      </div>
     </div>
   );
 }
