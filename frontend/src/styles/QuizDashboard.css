@@ -543,3 +543,101 @@
   background: #15652b;
   transform: scale(1.045);
 }
+/* --- Modal Unified Inputs --- */
+.modal-assign .modal-input,
+.modal-assign select,
+.modal-assign input[type="datetime-local"],
+.modal-assign input[type="number"] {
+  width: 100%;
+  margin-bottom: 1.1rem;
+  font-size: 1.12rem;
+  border-radius: 7px;
+  padding: 0.73rem 1rem;
+  border: 1.6px solid #e0e7ef;
+  background: #f7fafc;
+  transition: border-color 0.17s;
+  box-sizing: border-box;
+}
+
+.modal-assign .modal-input:focus {
+  border-color: #4b6cb7;
+  background: #eaf3ff;
+}
+
+.modal-actions-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.modal-btn {
+  padding: 0.7rem 2.1rem;
+  font-size: 1.11rem;
+  border-radius: 8px;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 2px 12px #d6e1ef33;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.11s;
+}
+
+.modal-btn.confirm {
+  background: linear-gradient(90deg, #48bb78 0%, #38a169 100%);
+  color: #fff;
+}
+
+.modal-btn.confirm:hover {
+  background: linear-gradient(90deg, #36a060 0%, #24804b 100%);
+  transform: scale(1.045);
+}
+
+.modal-btn.cancel {
+  background: #e2e8f0;
+  color: #43537b;
+}
+
+.modal-btn.cancel:hover {
+  background: #d3dae7;
+  color: #222;
+  transform: scale(1.04);
+}
+.quiz-header-row {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  font-size: 1.04rem;
+  margin-bottom: 0.22rem;
+}
+.quiz-title {
+  font-size: 1.19rem; /* slightly smaller than before */
+  font-weight: 600;
+  color: #32405b;
+  flex: 1;
+}
+.quiz-date {
+  font-size: 1.02rem;
+  color: #8b97ab;
+  cursor: pointer;
+  border-bottom: 1px dashed #b7caef;
+  transition: color 0.17s;
+}
+.quiz-date:hover {
+  color: #1b2232;
+}
+.quiz-code {
+  background: #f1f3f6;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-family: "Fira Mono", "Consolas", monospace;
+  font-size: 1.01rem;
+  color: #1a504a;
+  border: 1px solid #dbeafe;
+  margin-left: 0.6rem;
+}
+.quiz-code code {
+  font-family: inherit;
+  background: none;
+  color: #13883a;
+  font-weight: 600;
+}

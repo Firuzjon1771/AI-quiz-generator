@@ -89,6 +89,7 @@ export default function ClassStudentList({ classId, onSelectStudent, onBack }) {
           Add Student
         </button>
       </div>
+      <h1>Students performance overall</h1>
       <StudentPerformanceChart quizzes={performance} />
     </div>
   );

@@ -4,7 +4,7 @@ import { FaBrain, FaFileUpload, FaListOl, FaRegFileAlt } from "react-icons/fa";
 import Spinner from "./Spinner";
 import { ToggleSwitch } from "./ToggleSwitch";
 import "../styles/UploadForm.css";
-
+import ProgressBar from "../components/ProgresBar";
 export default function UploadForm({ setTopic, setSummary, setQuestions }) {
   const [text, setText] = useState("");
   const [file, setFile] = useState(null);
@@ -30,16 +30,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
   }, []);
   const builtInTopics = Object.keys(builtInMap);
 
-  function ProgressBar({ loading }) {
-    return loading ? (
-      <div className="progress-bar-container">
-        <div className="progress-bar-anim" />
-        <span className="progress-bar-label">
-          Generating questions... please wait
-        </span>
-      </div>
-    ) : null;
-  }
   const effectiveTopic = (() => {
     if (topicJsonMap) return selectedJsonTopic;
     if (selectedBuiltInTopic) return selectedBuiltInTopic;

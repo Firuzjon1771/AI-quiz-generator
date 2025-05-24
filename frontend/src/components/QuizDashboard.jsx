@@ -24,7 +24,7 @@ export default function QuizDashboard({ onEdit }) {
   const [modalTimeLimit, setModalTimeLimit] = useState("");
   const [students, setStudents] = useState([]);
   const [loadingStudents, setLoadingStudents] = useState(false);
-
+  const teacherId = JSON.parse(localStorage.getItem("user"))?.username;
   const showToast = (msg) => {
     setNotification(msg);
     setTimeout(() => setNotification(""), 3000);
@@ -46,7 +46,30 @@ export default function QuizDashboard({ onEdit }) {
       console.error("Failed to fetch quizzes:", err);
     }
   };
-
+  function ClassSelectDropdown({ teacherId, modalClassId, setModalClassId }) {
+    const [classes, setClasses] = useState([]);
+    useEffect(() => {
+      if (!teacherId) return;
+      axios
+        .get(`/api/teacher/${teacherId}/classes`)
+        .then((res) => setClasses(res.data))
+        .catch(() => setClasses([]));
+    }, [teacherId]);
+    return (
+      <select
+        value={modalClassId}
+        onChange={(e) => setModalClassId(e.target.value)}
+        className="modal-input"
+      >
+        <option value="">Select Class</option>
+        {classes.map((cls) => (
+          <option key={cls.id} value={cls.id}>
+            {cls.name}
+          </option>
+        ))}
+      </select>
+    );
+  }
   const toggleActive = async (quizId, makeActive) => {
     try {
       await axios.post(
@@ -134,6 +157,25 @@ export default function QuizDashboard({ onEdit }) {
     setShowClassModal(false);
     setSelectedQuizForClass(null);
   };
+  function formatShortDate(iso) {
+    const d = new Date(iso);
+    return d.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
+  }
+  function formatFullDate(iso) {
+    const d = new Date(iso);
+    return d.toLocaleString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+  }
   const confirmAssignClass = async () => {
     if (!modalClassId) {
       showToast("Select a class first.");
@@ -202,9 +244,19 @@ export default function QuizDashboard({ onEdit }) {
         <div className="quiz-grid">
           {listToShow.map((quiz) => (
             <div key={quiz.id} className="quiz-card">
-              <div className="quiz-details">
-                <strong>{quiz.title}</strong> <span>({quiz.topic})</span> —{" "}
-                {formatDate(quiz.created_at)}
+              <div className="quiz-header-row">
+                <span className="quiz-title">
+                  {quiz.title + " "}({quiz.topic})
+                </span>
+                <span
+                  className="quiz-date"
+                  title={formatFullDate(quiz.created_at)} // shows full date/time on hover
+                >
+                  {formatShortDate(quiz.created_at)}
+                </span>
+                <span className="quiz-code">
+                  Code: <code>{quiz.code}</code>
+                </span>
               </div>
               <div className="quiz-actions-group">
                 {tab === "active" && (
@@ -285,7 +337,7 @@ export default function QuizDashboard({ onEdit }) {
 
       {showStudentModal && (
         <div className="modal-overlay">
-          <div className="modal card">
+          <div className="modal card modal-assign">
             <h3>Assign to Student</h3>
             {loadingStudents ? (
               <p>Loading students…</p>
@@ -296,7 +348,9 @@ export default function QuizDashboard({ onEdit }) {
                   setModalStudentId(e.target.value);
                   setModalStudentError("");
                 }}
-                className={modalStudentError ? "input-error" : ""}
+                className={
+                  "modal-input" + (modalStudentError ? " input-error" : "")
+                }
               >
                 <option value="">Select Student</option>
                 {students.map((student) => (
@@ -306,13 +360,15 @@ export default function QuizDashboard({ onEdit }) {
                 ))}
               </select>
             )}
+
             <label>Due date &amp; time</label>
             <input
               type="datetime-local"
               value={modalDueAt}
               onChange={(e) => setModalDueAt(e.target.value)}
-              className="due-input"
+              className="modal-input"
             />
+
             <label>Time limit (minutes)</label>
             <input
               type="number"
@@ -320,15 +376,21 @@ export default function QuizDashboard({ onEdit }) {
               placeholder="e.g. 30"
               value={modalTimeLimit}
               onChange={(e) => setModalTimeLimit(e.target.value)}
+              className="modal-input"
             />
+
             {modalStudentError && (
               <p className="error-text">{modalStudentError}</p>
             )}
-            <div className="modal-actions">
-              <button className="btn primary" onClick={confirmAssignStudent}>
+
+            <div className="modal-actions-row">
+              <button
+                className="modal-btn confirm"
+                onClick={confirmAssignStudent}
+              >
                 Confirm
               </button>
-              <button className="btn secondary" onClick={closeStudentModal}>
+              <button className="modal-btn cancel" onClick={closeStudentModal}>
                 Cancel
               </button>
             </div>
@@ -338,26 +400,22 @@ export default function QuizDashboard({ onEdit }) {
 
       {showClassModal && (
         <div className="modal-overlay">
-          <div className="modal card">
+          <div className="modal card modal-assign">
             <h3>Assign to Class</h3>
-            <select
-              value={modalClassId}
-              onChange={(e) => setModalClassId(e.target.value)}
-            >
-              <option value="">Select Class</option>
-              {CLASS_OPTIONS.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
+            <ClassSelectDropdown
+              teacherId={teacherId}
+              modalClassId={modalClassId}
+              setModalClassId={setModalClassId}
+            />
+
             <label>Due date &amp; time</label>
             <input
               type="datetime-local"
               value={modalDueAt}
               onChange={(e) => setModalDueAt(e.target.value)}
-              className="due-input"
+              className="modal-input"
             />
+
             <label>Time limit (minutes)</label>
             <input
               type="number"
@@ -365,12 +423,17 @@ export default function QuizDashboard({ onEdit }) {
               placeholder="e.g. 30"
               value={modalTimeLimit}
               onChange={(e) => setModalTimeLimit(e.target.value)}
+              className="modal-input"
             />
-            <div className="modal-actions">
-              <button className="btn primary" onClick={confirmAssignClass}>
+
+            <div className="modal-actions-row">
+              <button
+                className="modal-btn confirm"
+                onClick={confirmAssignClass}
+              >
                 Confirm
               </button>
-              <button className="btn secondary" onClick={closeClassModal}>
+              <button className="modal-btn cancel" onClick={closeClassModal}>
                 Cancel
               </button>
             </div>

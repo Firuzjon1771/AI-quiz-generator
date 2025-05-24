@@ -9,7 +9,7 @@ export default function QuizEditor({ quizId, onBack }) {
   const [topic, setTopic] = useState("");
   const [editedQuestions, setEditedQuestions] = useState([]);
   const [saving, setSaving] = useState(false);
-  const [fullContent, setFullContent] = useState("");
+  const [showToast, setShowToast] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,7 +17,6 @@ export default function QuizEditor({ quizId, onBack }) {
     axios.get(`/api/quiz/${quizId}/json`).then(({ data }) => {
       setTitle(data.title);
       setTopic(data.topic);
-      setFullContent(data.source_text || "");
 
       const mapped = (data.questions || []).map((item) => {
         if (Array.isArray(item)) {
@@ -85,6 +84,25 @@ export default function QuizEditor({ quizId, onBack }) {
     }
   };
 
+  useEffect(() => {
+    setEditedQuestions((prevQs) =>
+      prevQs.map((q) => {
+        if (q.type !== "mc" || !q.options?.length) return q;
+        if (!q.options.includes(q.answer)) {
+          return { ...q, answer: q.options[0] || "" };
+        }
+        return q;
+      })
+    );
+    // eslint-disable-next-line
+  }, [editedQuestions.map((q) => q.options?.join(","))?.join(" | ")]);
+
+  const handleCorrectOptionChange = (qi, newCorrectIdx) => {
+    const opts = editedQuestions[qi].options;
+    if (!opts || !opts[newCorrectIdx]) return;
+    handleUpdate(qi, "answer", opts[newCorrectIdx]);
+  };
+
   const handleSave = async () => {
     setSaving(true);
     try {
@@ -103,8 +121,11 @@ export default function QuizEditor({ quizId, onBack }) {
         topic,
         questions: payloadQs,
       });
-      alert("Quiz saved!");
-      onBack();
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 2000);
+      setTimeout(() => {
+        navigate("/quizzes"); // Navigates to quizzes page after save
+      }, 2000);
     } catch (err) {
       console.error("Save failed:", err);
       alert("Save failed");
@@ -115,6 +136,7 @@ export default function QuizEditor({ quizId, onBack }) {
 
   return (
     <div className="quiz-editor">
+      {showToast && <div className="toast-notification">Quiz was saved</div>}
       <button onClick={() => navigate("/quizzes")} className="back-button">
         ← Back
       </button>
@@ -144,16 +166,22 @@ export default function QuizEditor({ quizId, onBack }) {
         {editedQuestions.map((qa, i) => (
           <div key={i} className="question-card">
             <div className="question-header">
-              <label>
-                <input
-                  type="checkbox"
-                  checked={qa.type === "mc"}
-                  onChange={() => toggleMakeMC(i)}
-                />
-                Make multiple-choice
+              <input
+                type="checkbox"
+                checked={qa.type === "mc"}
+                onChange={() => toggleMakeMC(i)}
+                style={{ marginRight: 4 }}
+                id={`mc-checkbox-${i}`}
+              />{" "}
+              <label>Make multi choice</label>
+              <label
+                htmlFor={`mc-checkbox-${i}`}
+                style={{ marginBottom: 0, fontWeight: 500 }}
+              >
+                Q{i + 1} (
+                {qa.type === "mc" ? "Multiple Choice" : "Open Question"})
               </label>
             </div>
-
             <div className="question-body">
               <textarea
                 className="editor-textarea"
@@ -167,7 +195,10 @@ export default function QuizEditor({ quizId, onBack }) {
               <div className="choices">
                 {qa.options.map((opt, j) => (
                   <div key={j} className="choice-row">
-                    <label className="choice-label">
+                    <label
+                      className="choice-label"
+                      style={{ display: "block" }}
+                    >
                       Option {String.fromCharCode(65 + j)}
                     </label>
                     <input
@@ -184,23 +215,35 @@ export default function QuizEditor({ quizId, onBack }) {
                 ))}
 
                 <div className="choice-row">
-                  <label className="choice-label">Correct answer</label>
-                  <input
-                    type="text"
-                    className="editor-input"
-                    value={qa.answer}
-                    onChange={(e) => handleUpdate(i, "answer", e.target.value)}
-                  />
+                  <label className="choice-label" style={{ minWidth: 120 }}>
+                    Correct answer
+                  </label>
+                  <select
+                    className="correct-answer-dropdown"
+                    value={qa.options.findIndex((opt) => opt === qa.answer)}
+                    onChange={(e) =>
+                      handleCorrectOptionChange(i, Number(e.target.value))
+                    }
+                  >
+                    {qa.options.map((opt, j) => (
+                      <option key={j} value={j}>
+                        Option {String.fromCharCode(65 + j)}: {opt}
+                      </option>
+                    ))}
+                  </select>
                 </div>
               </div>
             ) : (
-              <textarea
-                className="editor-textarea answer-area"
-                rows={1}
-                placeholder="Answer"
-                value={qa.answer}
-                onChange={(e) => handleUpdate(i, "answer", e.target.value)}
-              />
+              <div className="answer-row">
+                <label className="a-label">Answer</label>
+                <textarea
+                  className="editor-textarea answer-area"
+                  rows={1}
+                  placeholder="Answer"
+                  value={qa.answer}
+                  onChange={(e) => handleUpdate(i, "answer", e.target.value)}
+                />
+              </div>
             )}
           </div>
         ))}
