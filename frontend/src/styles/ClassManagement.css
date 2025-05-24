@@ -208,7 +208,6 @@ input[placeholder="New class name"] {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* existing styles... */
 }
 
 .student-info {
@@ -219,6 +218,6 @@ input[placeholder="New class name"] {
 .student-actions {
   display: flex;
   gap: 0.7rem;
-  min-width: 185px; /* ensures the buttons are always aligned in a column */
+  min-width: 185px;
   justify-content: flex-end;
 }

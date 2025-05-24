@@ -11,14 +11,13 @@ export default function QuizTake({ studentId }) {
   const [quiz, setQuiz] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [answers, setAnswers] = useState({}); // { [qIdx]: "string" }
+  const [answers, setAnswers] = useState({});
   const [timeLeft, setTimeLeft] = useState(0);
   const [timedOut, setTimedOut] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [result, setResult] = useState(null);
   const [showResultModal, setShowResultModal] = useState(false);
 
-  // Load quiz & assignment
   useEffect(() => {
     async function load() {
       try {
@@ -42,7 +41,6 @@ export default function QuizTake({ studentId }) {
     load();
   }, [studentId, assignmentId]);
 
-  // Countdown timer
   useEffect(() => {
     if (!quiz || timedOut) return;
     if (timeLeft <= 0) {
@@ -55,7 +53,6 @@ export default function QuizTake({ studentId }) {
     return () => clearTimeout(timerRef.current);
   }, [timeLeft, quiz, timedOut]);
 
-  // Submit handler
   const doSubmit = async () => {
     clearTimeout(timerRef.current);
     setShowConfirm(false);
@@ -64,7 +61,7 @@ export default function QuizTake({ studentId }) {
       const { data } = await axios.post(`/api/student/${studentId}/submit`, {
         quiz_id: quiz.quiz_id,
         assignment_id: quiz.assignment_id,
-        answers, // map of strings
+        answers,
       });
       setResult({
         score: data.score,
@@ -80,7 +77,6 @@ export default function QuizTake({ studentId }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // how many answered?
     const answered = Object.keys(answers).filter(
       (k) => answers[k] !== undefined && answers[k] !== ""
     ).length;
@@ -97,7 +93,6 @@ export default function QuizTake({ studentId }) {
     navigate("/students", { replace: true });
   };
 
-  // UI states
   if (loading) return <p>Loading…</p>;
   if (error) return <p className="error">{error}</p>;
   if (showResultModal && result) {
@@ -117,7 +112,6 @@ export default function QuizTake({ studentId }) {
     );
   }
 
-  // Clock hand angle
   const angle =
     (((quiz.time_limit ?? 10) - timeLeft) / (quiz.time_limit ?? 10)) * 360;
 
@@ -183,10 +177,8 @@ export default function QuizTake({ studentId }) {
         <div className="digital-clock">{timeLeft}s</div>
       </div>
 
-      {/* Quiz Form */}
       <form className="quiz-form" onSubmit={handleSubmit}>
         {quiz.questions.map((q, idx) => {
-          // detect question type
           const isArrayQ = Array.isArray(q);
           const isMC = q.type === "mc";
           let questionText,
@@ -223,10 +215,8 @@ export default function QuizTake({ studentId }) {
                             const { checked, value } = e.target;
                             setAnswers((prev) => {
                               if (checked) {
-                                // store as a single string
                                 return { ...prev, [idx]: value };
                               } else {
-                                // remove it
                                 const { [idx]: _, ...rest } = prev;
                                 return rest;
                               }
@@ -241,7 +231,6 @@ export default function QuizTake({ studentId }) {
                   })}
                 </div>
               ) : (
-                // open / text question
                 <input
                   type="text"
                   value={answers[idx] || ""}
@@ -262,7 +251,6 @@ export default function QuizTake({ studentId }) {
         </button>
       </form>
 
-      {/* confirmation for unanswered */}
       {showConfirm && (
         <div className="modal-overlay">
           <div className="modal">

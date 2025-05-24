@@ -55,9 +55,6 @@ class QuestionGenerator:
         )
 
     def summarize(self, text: str, max_length: int = 150, min_length: int = 50) -> str:
-        """
-        Use Flan-T5 to produce a summary.
-        """
         result = self.summarizer(
             text,
             max_length=max_length,
@@ -75,10 +72,6 @@ class QuestionGenerator:
         ]
 
     def _generate_candidate_distractors(self, question: str) -> list[str]:
-        """
-        Pull out all noun-chunks and single-word NOUN/PROPN tokens
-        from the question, to use as raw distractor candidates.
-        """
         doc = _NLP(question)
         chunks = [chunk.text.strip() for chunk in doc.noun_chunks]
         single_nouns = [
@@ -123,12 +116,6 @@ class QuestionGenerator:
                              content: str,
                              total_count: int,
                              keywords: list) -> list:
-        """
-        New per-keyword logic.
-        Uses only self.templates_updated (which have {keyword} and {topic})
-        and falls back to generate_questions() if needed.
-        Returns a list of (question, answer) tuples.
-        """
         qa_pairs = []
 
         present = [kw for kw in keywords if kw.lower() in content.lower()]
@@ -160,10 +147,6 @@ class QuestionGenerator:
 
         return qa_pairs[:total_count]
     def _generate_candidate_distractors(self, question):
-        """
-        Try key-phrase extraction, flattening nested lists or numpy arrays,
-        then fallback to splitting the question text itself into words.
-        """
         try:
             raw = extract_key_phrases(question)
             if isinstance(raw, np.ndarray):
@@ -201,10 +184,6 @@ class QuestionGenerator:
                            num_questions: int = 10,
                            open_count: int = None,
                            mc_count: int = None) -> list:
-        """
-        Your existing topic-based generation logic.
-        Uses self.templates (expanded JSON with {} placeholders).
-        """
         if open_count is None or mc_count is None:
             open_count = num_questions
             mc_count   = 0
@@ -238,9 +217,6 @@ class QuestionGenerator:
         )
 
     def _generate_template_then_neural(self, topic, content, count):
-        """
-        Combination of template‐based & neural to get `count` open questions.
-        """
         results = []
         used_answers = set()
         batch = []
@@ -283,15 +259,6 @@ class QuestionGenerator:
 
 
     def _parse_mc_output(self, text):
-        """
-        Expect lines like:
-        1. Question?
-        A. Opt1
-        B. Opt2
-        C. Opt3
-        D. Opt4
-        Answer: B
-        """
         lines = [l.strip() for l in text.splitlines() if l.strip()]
         qa = []
         i = 0
@@ -318,9 +285,6 @@ class QuestionGenerator:
         return qa
 
     def _generate_neural_questions(self, content):
-        """
-        Simple FLAN‐T5 shot for open Q&A
-        """
         prompt = f"Generate 10 educational questions with answers from this text:\n\n{content}"
         inputs = self.flan_tokenizer(
             prompt, return_tensors="pt", truncation=True, max_length=1024

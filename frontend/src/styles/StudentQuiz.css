@@ -60,23 +60,23 @@
   font-weight: bold;
 }
 .score-red {
-  color: #e53e3e !important; /* Red */
+  color: #e53e3e !important;
   font-weight: bold;
 }
 .score-gray {
-  color: #a0aec0 !important; /* Gray */
+  color: #a0aec0 !important;
   font-weight: bold;
 }
 .score-blue {
-  color: #4299e1 !important; /* Blue */
+  color: #4299e1 !important;
   font-weight: bold;
 }
 .score-yellow {
-  color: #ecc94b !important; /* Yellow */
+  color: #ecc94b !important;
   font-weight: bold;
 }
 .score-green {
-  color: #2f855a !important; /* Green */
+  color: #2f855a !important;
   font-weight: bold;
 }
 .submitted-date {
@@ -87,7 +87,7 @@
   margin-bottom: 8px;
 }
 .custom-tooltip .tooltip-content {
-  display: block; /* always for this version */
+  display: block;
   background: #1a202c;
   color: #fff;
   padding: 6px 13px;

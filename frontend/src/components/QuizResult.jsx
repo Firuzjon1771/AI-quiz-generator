@@ -69,7 +69,6 @@ export default function QuizResult() {
           const correctAnswer = getCorrectAnswer(q);
 
           if (!hasAnswers) {
-            // No student answers: show only quiz and correct answers, no highlight
             return (
               <div
                 key={idx}
@@ -110,7 +109,6 @@ export default function QuizResult() {
             );
           }
 
-          // Student has answers
           const studentAnswer = getStudentAnswer(idx);
           const correct = isCorrect(idx, q);
 

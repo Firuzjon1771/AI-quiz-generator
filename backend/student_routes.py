@@ -9,10 +9,6 @@ def get_db():
     return g.db
 
 def get_quiz(quiz_id):
-    """
-    Fetches a quiz by ID from the `quizzes` table and parses its JSON data
-    into a list of (question_text, correct_answer) tuples.
-    """
     db = get_db()
     row = db.execute(
         "SELECT title, topic, data FROM quizzes WHERE id = ?",
@@ -309,9 +305,6 @@ def register_student_routes(app):
         })
     @app.route("/api/students", methods=["GET"])
     def get_all_students():
-        """
-        Returns all users marked role='student'.
-        """
         db = get_db()
         rows = db.execute(
             """
@@ -336,10 +329,6 @@ def register_student_routes(app):
         return jsonify(students)
     @app.route("/api/students/<student_id>", methods=["GET"])
     def get_student_detail(student_id):
-        """
-        Returns detailed info (basic info + quizzes) for a single student,
-        reading from the real database.
-        """
         db = get_db()
 
         stu = db.execute(

@@ -14,9 +14,6 @@ class_students_bp = Blueprint('class_students', __name__)
 
 @class_students_bp.route('/api/classes/<class_id>/students', methods=['GET'])
 def get_students_by_class(class_id):
-    """
-    Returns only those rows in `students` where role='student' AND class_id matches.
-    """
     db = get_db()
     rows = db.execute(
         """

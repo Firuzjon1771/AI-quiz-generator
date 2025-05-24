@@ -2,7 +2,6 @@
   padding: 2rem;
 }
 
-/* ─── Tab buttons ─────────────────────────────────────────────────────────── */
 .tab-buttons {
   display: flex;
   gap: 1rem;
@@ -33,9 +32,7 @@
   color: #fff;
 }
 
-/* ─── Results content ─────────────────────────────────────────────────────── */
 .results-view {
-  /* ensure your inner view can grow/shrink normally */
   display: block;
 }
 .class-list {

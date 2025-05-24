@@ -15,10 +15,6 @@ student_detail_bp = Blueprint('student_detail', __name__)
 
 @student_detail_bp.route('/api/students/<student_id>', methods=['GET'])
 def get_student_detail(student_id):
-    """
-    Returns detailed info (basic info + quizzes) for a single student,
-    reading from the real database.
-    """
     db = get_db()
 
     stu = db.execute(

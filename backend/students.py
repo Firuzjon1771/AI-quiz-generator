@@ -14,9 +14,6 @@ students_bp = Blueprint('students', __name__)
 
 @students_bp.route('/api/students', methods=['GET'])
 def get_all_students():
-    """
-    Returns all users marked role='student'.
-    """
     db = get_db()
     rows = db.execute(
         """

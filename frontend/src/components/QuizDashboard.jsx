@@ -75,7 +75,6 @@ export default function QuizDashboard({ onEdit }) {
     window.open(`http://localhost:5000/api/quiz/${id}/${type}`);
   };
 
-  // Open modal and fetch students
   const openStudentModal = (quizId) => {
     setModalStudentError("");
     setModalDueAt("");
@@ -284,7 +283,6 @@ export default function QuizDashboard({ onEdit }) {
         </div>
       )}
 
-      {/* Assign to Student Modal */}
       {showStudentModal && (
         <div className="modal-overlay">
           <div className="modal card">
@@ -338,7 +336,6 @@ export default function QuizDashboard({ onEdit }) {
         </div>
       )}
 
-      {/* Assign to Class Modal */}
       {showClassModal && (
         <div className="modal-overlay">
           <div className="modal card">

@@ -6,32 +6,21 @@ import { ToggleSwitch } from "./ToggleSwitch";
 import "../styles/UploadForm.css";
 
 export default function UploadForm({ setTopic, setSummary, setQuestions }) {
-  // ─── core state ─────────────────────────
   const [text, setText] = useState("");
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
-
   const [totalCount, setTotalCount] = useState(10);
   const [mcCount, setMcCount] = useState(0);
   const [withSummary, setWithSummary] = useState(false);
   const [summaryLength, setSummaryLength] = useState(2);
-
-  // ─── topic methods ──────────────────────
   const [autoDetectTopic, setAutoDetectTopic] = useState(true);
-
-  // branches
   const [topicJsonMap, setTopicJsonMap] = useState(null);
   const [selectedJsonTopic, setSelectedJsonTopic] = useState("");
-
   const [manualTopic, setManualTopic] = useState("");
   const [selectedBuiltInTopic, setSelectedBuiltInTopic] = useState("");
-
-  // keywords
   const [availableKeywords, setAvailableKeywords] = useState([]);
   const [selectedKeywords, setSelectedKeywords] = useState([]);
   const [customKeyword, setCustomKeyword] = useState("");
-
-  // built-in map fetched from server
   const [builtInMap, setBuiltInMap] = useState({});
   useEffect(() => {
     axios
@@ -51,7 +40,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
       </div>
     ) : null;
   }
-  // compute which “topic” is active
   const effectiveTopic = (() => {
     if (topicJsonMap) return selectedJsonTopic;
     if (selectedBuiltInTopic) return selectedBuiltInTopic;
@@ -62,7 +50,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
   const isNewTopic =
     !isJsonBranch && effectiveTopic && !builtInMap[effectiveTopic];
 
-  // whenever branch/topic changes, reset keyword lists
   useEffect(() => {
     let kws = [];
     if (isJsonBranch && selectedJsonTopic) {
@@ -81,14 +68,12 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
     topicJsonMap,
   ]);
 
-  // filter built-in dropdown by manual text
   const filteredBuiltInTopics = builtInTopics.filter((t) =>
     manualTopic.trim() === ""
       ? true
       : t.toLowerCase().includes(manualTopic.toLowerCase())
   );
 
-  // ─── handlers ───────────────────────────
   const handleFile = (e) => {
     const f = e.target.files[0];
     if (!f) return;
@@ -117,7 +102,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
   const handleAddCustomKeyword = () => {
     const kw = customKeyword.trim();
     if (!kw) return;
-    // update local lists
     setSelectedKeywords((p) => [...p, kw]);
     setAvailableKeywords((p) => [...p, kw]);
     setCustomKeyword("");
@@ -127,7 +111,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
     e.preventDefault();
     setLoading(true);
 
-    // 1) upload file text
     let content = text;
     if (file) {
       try {
@@ -145,7 +128,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
       }
     }
 
-    // 2) choose topic
     let topicToUse = "";
     if (autoDetectTopic) {
       try {
@@ -155,7 +137,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
         console.warn("Topic detect failed");
       }
     } else {
-      // manual/JSON branch
       if (isJsonBranch) {
         if (!selectedJsonTopic) {
           alert("Please choose a topic from your JSON.");
@@ -179,7 +160,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
     }
     setTopic(topicToUse);
 
-    // 3) call quiz API
     try {
       let res;
       const openCount = totalCount - mcCount;
@@ -196,7 +176,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
         });
         if (res.data.summary) setSummary(res.data.summary);
       } else {
-        // keywords branch
         const payload = {
           text: content,
           topic: topicToUse,
@@ -207,7 +186,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
         };
         res = await axios.post("/api/quiz/generate_by_keywords", payload);
 
-        // **always** tell server to save new topic if it doesn’t already exist
         await axios
           .post("/api/topics/add", {
             topic: topicToUse,
@@ -215,7 +193,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
           })
           .catch(() => {}); // existing → noop
 
-        // refresh our local map so the dropdown will include it immediately
         setBuiltInMap((m) => ({
           ...m,
           [topicToUse]: selectedKeywords,
@@ -231,12 +208,10 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
     }
   };
 
-  // ─── render ─────────────────────────────
   return (
     <form className="upload-form" onSubmit={handleSubmit}>
       <h3 className="form-header">Quick Generator</h3>
       <div className="settings-grid">
-        {/* Auto‐detect toggle */}
         <div className="setting">
           <FaBrain className="setting-icon" />
           <label htmlFor="detect-topic">Auto-detect topic</label>
@@ -245,7 +220,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
             checked={autoDetectTopic}
             onChange={(v) => {
               setAutoDetectTopic(v);
-              // clear all manual state
               setTopicJsonMap(null);
               setSelectedJsonTopic("");
               setManualTopic("");
@@ -258,7 +232,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
 
         {!autoDetectTopic && (
           <>
-            {/* Manual text input */}
             <div className="setting">
               <label>Topic</label>
               <input
@@ -273,7 +246,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
                 }}
               />
             </div>
-            {/* Built-in dropdown */}
             <div className="setting">
               <label>Or pick built-in topic</label>
               <select
@@ -289,7 +261,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
                 ))}
               </select>
             </div>
-            {/* JSON upload fallback */}
             <div className="setting">
               <label>Or upload topic→keywords JSON</label>
               <input
@@ -324,7 +295,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
               </p>
             )}
 
-            {/* ───── Modern keyword block ───── */}
             <label className="keyword-title">Pick keywords</label>
 
             {availableKeywords.length > 0 && (
@@ -361,7 +331,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
               </>
             )}
 
-            {/* ───── custom keyword adder ───── */}
             <div className="custom-keyword-row">
               <input
                 type="text"
@@ -378,7 +347,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
           </div>
         )}
 
-        {/* … total / summary / file pickers unchanged … */}
         <div className="setting">
           <FaListOl className="setting-icon" />
           <label>Total questions</label>

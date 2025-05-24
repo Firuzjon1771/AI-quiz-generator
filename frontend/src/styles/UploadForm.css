@@ -259,7 +259,6 @@
   display: block;
 }
 
-/* Add some cool for select, add button, and JSON file */
 .setting select,
 .custom-keyword button,
 .setting input[type="file"] {
@@ -303,7 +302,6 @@
   color: #fff;
 }
 
-/* Responsive adjustments */
 @media (max-width: 900px) {
   .upload-form {
     padding: 1.2rem 0.5rem;
