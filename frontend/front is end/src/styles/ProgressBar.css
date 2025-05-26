@@ -1,0 +1,46 @@
+.progress-bar-container {
+  width: 100%;
+  max-width: 510px;
+  margin: 1.2rem 0 0.8rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.progress-bar-anim {
+  width: 100%;
+  height: 8px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #6a5af9 0%, #9f66ff 50%, #42a5f5 100%);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0.4em;
+}
+
+.progress-bar-anim::before {
+  content: "";
+  position: absolute;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, #fff8 0%, #fff0 100%);
+  animation: progressBarSlide 1.3s infinite linear;
+  border-radius: 6px;
+}
+@keyframes progressBarSlide {
+  0% {
+    left: -40%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.progress-bar-label {
+  color: #4c468b;
+  font-size: 1.08rem;
+  font-weight: 500;
+  margin-top: 0.1em;
+  margin-left: 2px;
+  letter-spacing: 0.01em;
+}

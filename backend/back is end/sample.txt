@@ -1,0 +1,89 @@
+An operating system (OS) is the program that, after being initially loaded into the computer by a boot program, manages all the other application programs in a computer. The application programs use the OS by requesting services through a defined application program interface (API). In addition, users can interact directly with the operating system through a user interface (UI), such as a command-line interface (CLI) or a graphical user interface (GUI).
+
+What does an operating system do?
+An operating system brings powerful benefits to computer software and software development. Without an operating system, which is system software specifically designed to run the computer, every application would need to include its own UI, as well as the comprehensive code needed to handle all low-level functionality of the underlying computer's system software, such as disk storage and network interfaces. Considering the vast array of underlying hardware available, and the number of software routines that must be run at the system software level to support computer functions, this would bloat the size of every application and make software development impractical.
+
+Instead, the OS handles many system-level software tasks, including sending a network packet or displaying text on a standard output device, such as a display. The system software serves as an intermediary between the applications and the underlying computer and hardware functions. The OS provides a consistent and repeatable way for applications to interact with the hardware and other system-level functions without the applications needing to know any details about them.
+
+If each application accesses the same resources and services in the same way, the OS -- and the underlying systems software with which it engages -- can service almost any number of applications. This vastly reduces the amount of time and coding required to develop and debug an application, while ensuring that users can control, configure and manage system software and hardware through a common and well-understood OS interface.
+How does an operating system work?
+Once installed, an operating system relies on a large library of device drivers to tailor its services to the specific hardware environment. For example, every application could make a common call to a storage device. The OS receives that call and uses the corresponding driver to translate the call into actions, or commands, needed for the underlying hardware on that specific computer. The operating system provides a comprehensive platform that identifies, configures and manages the following:
+
+A range of hardware, including processors.
+Memory devices and computer memory management.
+Chipsets.
+Storage.
+Networking.
+Port communication interfaces, such as Video Graphics Array, High-Definition Multimedia Interface and Universal Serial Bus (USB).
+Subsystem interfaces, such as Peripheral Component Interconnect Express.
+What are the functions of an operating system?
+All major computer platforms -- both hardware and software -- typically require and include an OS that must be developed with different features to meet the specific needs of various device form factors.
+
+From an end user's perspective, an operating system provides the following three essential capabilities:
+
+Offers a UI through a CLI or GUI.
+Launches applications and manages application execution.
+Identifies and determines the allocation of system hardware resources such as printers and backup disk drives to those applications, typically through a standardized API.
+User interface
+The user can interact with the computer to do work either through a GUI, which is a point-and-click visual screen that contains icons that trigger system functions and launch applications, a CLI, which consists of a single command line for data entry, or both.
+
+A chart showing the four components of an operating system.
+The architecture of an OS.
+Application management
+An operating system handles the launch and management of every application, which supports the following functions:
+
+Timesharing multiple processes, or threads, so that various tasks can share the available processors' resources.
+Manages interruptions that applications produce to gain a processor's immediate attention, ensuring there's enough memory to execute the application and its corresponding data without interfering with other processes.
+Carries out error handling that can remove an application's processes.
+Perform memory management without disrupting other applications or the OS.
+Hardware provisioning and execution
+An operating system can also support APIs that enable applications to use OS and hardware functions without the need to know anything about the low-level OS or hardware state. For example, a Windows API can enable a program to obtain input from a keyboard or mouse; create GUI elements, such as dialog windows and buttons; and read and write files to a storage device. Applications are almost always tailored to use the OS system on which the application intends to run.
+
+Process scheduling and prioritization
+In a multitasking operating system, where multiple programs can be running at the same time, the OS determines in which order applications should run and how much time should be allowed for each application before giving another application a turn. For example, the OS can determine if a batch job, such as a large printing task, can be scheduled to run later when resources are free.
+
+Parallel processing
+On computers that can provide parallel processing, an OS manages how to divide a program so that it runs on more than one processor at a time.
+
+File management
+Per user request, IT rulesets or default settings, an operating system manages the creation, access, modification and deletion of files and directories.
+
+Networking
+Transparent to the user, the OS automatically connects a workstation to networkwide resources by deciphering network protocols and connecting to networks. This enables a single user to access network printers and servers that are hosted on the network.
+
+Security
+Using policies defined and authorized by IT, the OS enforces security access controls and encryption for users, applications and data.
+
+Performance monitoring and error detection
+The OS continually monitors computer performance and produces system logs that assist in fine-tuning for optimal performance and resolving issues that concern resource utilization, performance slowdowns and bottlenecks, and error resolution.
+
+Backup and recovery
+Data can be backed up periodically throughout the day, nightly, weekly or at whatever frequency that's defined. The OS can perform these backups automatically, without user or IT assistance. If a data outage or system failure occurs, data can easily be recovered from the latest backup.
+
+Virtualization
+Most OSes enable users to define multiple operating systems that run independently of each other by using software-created partitions that separate each OS from the others on a single physical workstation. This enables the user to run multiple applications, each with their own dedicated OS, simultaneously on a single workstation to optimize performance.
+
+Device management
+An operating system identifies, configures and provides applications with common access to underlying input/output devices such as printers, keyboards and other computer hardware devices. As the OS recognizes and identifies hardware, it installs corresponding device drivers and interfaces that enable the OS and applications running on the OS to use the devices.
+
+An operating system identifies the correct printer and installs the appropriate printer drivers so that an application needs to only make calls to the printer without having to use codes or commands that are specific to that printer. The process is similar for other devices, including the following:
+
+USB ports.
+Networking ports.
+Graphics devices, such as graphics processing units.
+Motherboard chipsets.
+Storage devices, such as Serial-Attached SCSI disk adapters and disks that are formatted with a suitable file system.
+The OS identifies and configures physical and logical devices for service and typically records them in a standardized structure, such as Windows Registry. Device manufacturers periodically patch and update drivers, and the OS should update them to ensure optimal device performance and security. When devices are replaced, the OS also installs and configures new drivers.
+
+Operating system types and examples
+Although the fundamental roles of an operating system are ubiquitous, there are countless operating systems that serve a wide range of hardware and user needs, including the following:
+
+General-purpose operating systems
+A general-purpose OS can run a multitude of applications on a broad selection of hardware, enabling a user to run one or more applications or tasks simultaneously. A general-purpose OS can be installed on many different desktop and laptop models and run applications from accounting systems to databases to web browsers to games. General-purpose OSes typically focus on process, or thread, and hardware management to ensure that applications can reliably share the wide range of computing hardware present.
+
+Common desktop operating systems include the following:
+
+Windows, Microsoft's flagship operating system, is the de facto standard for home and business computers. Introduced in 1985, the Microsoft Windows GUI-based OS has been released in many versions since then. The user-friendly Windows 95 was largely responsible for the rapid development of personal computing.
+Mac OS is the operating system for Apple's line of PCs and workstations.
+Unix is a multiuser operating system designed for flexibility and adaptability. Originally developed in the 1970s, Unix was one of the first OSes to be written in the C language.
+Linux is a Unix-like operating system from the open source community that was designed to provide PC users a free or low-cost OS alternative. Linux has a reputation as an efficient and fast-performing OS.
