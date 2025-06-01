@@ -11,6 +11,7 @@ export default function StudentQuiz({ studentId }) {
   const navigate = useNavigate();
   const [hoveredDateIdx, setHoveredDateIdx] = useState(null);
   const [tooltip, setTooltip] = useState({ idx: null, x: 0, y: 0 });
+
   function getScoreClass(score) {
     if (score < 50) return "score-red";
     if (score < 60) return "score-gray";
@@ -107,45 +108,51 @@ export default function StudentQuiz({ studentId }) {
         <>
           <h2>Your Completed Quizzes</h2>
           <div className="quiz-list">
-            {submitted.map((q, idx) => (
-              <div key={q.assignment_id} className="quiz-card completed">
-                <h3>{q.title}</h3>
-                <p className={`score ${getScoreClass(q.score)}`}>
-                  Score: {q.score}
-                </p>
-                <span
-                  className="submitted-date custom-tooltip"
-                  onMouseEnter={(e) =>
-                    setTooltip({ idx, x: e.clientX, y: e.clientY })
-                  }
-                  onMouseMove={(e) =>
-                    setTooltip({ idx, x: e.clientX, y: e.clientY })
-                  }
-                  onMouseLeave={() => setTooltip({ idx: null, x: 0, y: 0 })}
+            {submitted.map((q, idx) => {
+              // Compute the "score-…" class for this quiz
+              const scoreClass = getScoreClass(q.score);
+
+              return (
+                <div
+                  key={q.assignment_id}
+                  className={`quiz-card completed ${scoreClass}`}
                 >
-                  Submitted: {formatShortDate(q.submitted_at)}
-                  {tooltip.idx === idx && (
-                    <span
-                      className="tooltip-content"
-                      style={{
-                        position: "fixed",
-                        left: tooltip.x,
-                        top: tooltip.y - 36, // slightly above cursor
-                        pointerEvents: "none",
-                      }}
-                    >
-                      {formatFullDate(q.submitted_at)}
-                    </span>
-                  )}
-                </span>
-                <button
-                  className="btn preview-btn"
-                  onClick={() => navigate(`/quiz/result/${q.assignment_id}`)}
-                >
-                  Preview
-                </button>
-              </div>
-            ))}
+                  <h3>{q.title}</h3>
+                  <p className={`score ${scoreClass}`}>Score: {q.score}</p>
+                  <span
+                    className="submitted-date custom-tooltip"
+                    onMouseEnter={(e) =>
+                      setTooltip({ idx, x: e.clientX, y: e.clientY })
+                    }
+                    onMouseMove={(e) =>
+                      setTooltip({ idx, x: e.clientX, y: e.clientY })
+                    }
+                    onMouseLeave={() => setTooltip({ idx: null, x: 0, y: 0 })}
+                  >
+                    Submitted: {formatShortDate(q.submitted_at)}
+                    {tooltip.idx === idx && (
+                      <span
+                        className="tooltip-content"
+                        style={{
+                          position: "fixed",
+                          left: tooltip.x,
+                          top: tooltip.y - 36,
+                          pointerEvents: "none",
+                        }}
+                      >
+                        {formatFullDate(q.submitted_at)}
+                      </span>
+                    )}
+                  </span>
+                  <button
+                    className="btn preview-btn"
+                    onClick={() => navigate(`/quiz/result/${q.assignment_id}`)}
+                  >
+                    Preview
+                  </button>
+                </div>
+              );
+            })}
           </div>
         </>
       )}

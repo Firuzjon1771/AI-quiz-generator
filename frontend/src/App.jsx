@@ -74,7 +74,7 @@ const App = () => {
                     ) : (
                       <>
                         <div className="dashboard-wrapper">
-                          <h2 className="section-title">Quick Generator</h2>
+                          <h2 className="section-title">Ai quizz Generator</h2>
                           <UploadForm
                             setTopic={setTopic}
                             setSummary={setSummary}
@@ -94,7 +94,6 @@ const App = () => {
                                 approved={questions}
                                 topic={topic}
                                 onSave={() => {
-                                  showToast("Quiz saved!");
                                   setTopic("");
                                   setSummary("");
                                   setQuestions([]);

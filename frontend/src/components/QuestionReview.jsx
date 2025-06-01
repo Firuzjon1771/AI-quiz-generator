@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../styles/QuestionReview.css";
-
+import { showToast } from "../components/toast";
 const QuestionReview = ({ questions, topic, onSave }) => {
   const [title, setTitle] = useState("");
 
@@ -40,7 +40,7 @@ const QuestionReview = ({ questions, topic, onSave }) => {
         list[idx].options = data.options;
       } catch (err) {
         console.error("MC generate error:", err);
-        alert("Failed to generate options");
+        showToast("Failed to generate options");
         list[idx].mcEnabled = false;
       }
     } else {
@@ -83,7 +83,7 @@ const QuestionReview = ({ questions, topic, onSave }) => {
       questions: payloadQs,
     });
 
-    alert(`Quiz saved with ID: ${saveRes.data.quiz_id}`);
+    showToast(`Quiz saved with ID: ${saveRes.data.quiz_id}`);
     onSave && onSave(saveRes.data.quiz_id);
   };
 

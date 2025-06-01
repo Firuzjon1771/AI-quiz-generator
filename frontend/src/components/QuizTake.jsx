@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import "../styles/QuizTake.css";
-
+import { showToast } from "../components/toast";
 export default function QuizTake({ studentId }) {
   const { assignmentId } = useParams();
   const navigate = useNavigate();
@@ -45,7 +45,7 @@ export default function QuizTake({ studentId }) {
     if (!quiz || timedOut) return;
     if (timeLeft <= 0) {
       setTimedOut(true);
-      alert("Time’s up! Auto-submitting…");
+      showToast("Time’s up! Auto-submitting…");
       doSubmit();
       return;
     }

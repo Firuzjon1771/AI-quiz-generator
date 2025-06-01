@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import { showToast } from "../components/toast";
 export default function SaveQuiz({ approved, topic, onSave }) {
   const [title, setTitle] = useState("");
   const [edited, setEdited] = useState([]);
@@ -41,7 +41,7 @@ export default function SaveQuiz({ approved, topic, onSave }) {
         );
       } catch (err) {
         console.error("MC generation failed:", err);
-        alert("Failed to generate MC options");
+        showToast("Failed to generate MC options");
         setEdited((prev) =>
           prev.map((q, i) =>
             i === idx ? { ...q, type: "open", options: [] } : q
@@ -90,11 +90,11 @@ export default function SaveQuiz({ approved, topic, onSave }) {
         topic,
         questions: qs,
       });
-      alert("Saved quiz id " + data.quiz_id);
+      showToast("Saved quiz id " + data.quiz_id);
       onSave?.(data.quiz_id);
     } catch (err) {
       console.error(err);
-      alert("Save failed");
+      showToast("Save failed");
     }
   };
 

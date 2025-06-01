@@ -5,6 +5,7 @@ import Spinner from "./Spinner";
 import { ToggleSwitch } from "./ToggleSwitch";
 import "../styles/UploadForm.css";
 import ProgressBar from "../components/ProgresBar";
+import { showToast } from "../components/toast";
 export default function UploadForm({ setTopic, setSummary, setQuestions }) {
   const [text, setText] = useState("");
   const [file, setFile] = useState(null);
@@ -83,7 +84,7 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
         setTopicJsonMap(obj);
         setSelectedJsonTopic("");
       } catch {
-        alert("Invalid JSON file");
+        showToast("Invalid JSON file");
       }
     };
     reader.readAsText(f);
@@ -112,7 +113,7 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
         content = up.data.text;
         setText(content);
       } catch {
-        alert("Upload failed");
+        showToast("Upload failed");
         setLoading(false);
         return;
       }
@@ -122,26 +123,38 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
     if (autoDetectTopic) {
       try {
         const dt = await axios.post("/api/detect", { text: content });
-        topicToUse = dt.data.Primary || dt.data.primary || dt.data.topic || "";
+        const detection = dt.data || {};
+        const scoresObj = detection.Scores || {};
+        const allScores = Object.values(scoresObj).map((v) => Number(v) || 0);
+        const maxScore = allScores.length ? Math.max(...allScores) : 0;
+        if (!detection.Primary || maxScore === 0) {
+          showToast(
+            "Unable to detect a meaningful topic from your text. " +
+              "Please enter a clearer scientific passage or pick a topic manually."
+          );
+          setLoading(false);
+          return;
+        }
+        topicToUse = detection.Primary;
       } catch {
         console.warn("Topic detect failed");
       }
     } else {
       if (isJsonBranch) {
         if (!selectedJsonTopic) {
-          alert("Please choose a topic from your JSON.");
+          showToast("Please choose a topic from your JSON.");
           setLoading(false);
           return;
         }
         topicToUse = selectedJsonTopic;
       } else {
         if (!effectiveTopic) {
-          alert("Please enter or pick a topic.");
+          showToast("Please enter or pick a topic.");
           setLoading(false);
           return;
         }
         if (isNewTopic && selectedKeywords.length === 0) {
-          alert("New topic → please enter ≥1 keyword.");
+          showToast("New topic → please enter ≥1 keyword.");
           setLoading(false);
           return;
         }
@@ -192,7 +205,9 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
       setQuestions(res.data.questions || []);
     } catch (err) {
       console.error(err);
-      alert("Generation failed: " + (err.response?.data?.error || err.message));
+      showToast(
+        "Generation failed: " + (err.response?.data?.error || err.message)
+      );
     } finally {
       setLoading(false);
     }
@@ -200,7 +215,6 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
 
   return (
     <form className="upload-form" onSubmit={handleSubmit}>
-      <h3 className="form-header">Quick Generator</h3>
       <div className="settings-grid">
         <div className="setting">
           <FaBrain className="setting-icon" />

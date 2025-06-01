@@ -73,7 +73,7 @@
   margin-bottom: 1rem;
 }
 .editor-textarea {
-  width: 98%;
+  width: 97%;
   height: 30px;
   padding: 0.5rem;
   border: 1px solid #ccc;
@@ -152,13 +152,12 @@
 .question-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 .question-header label {
-  display: flex;
-  align-items: center;
+  font-weight: 500;
   font-size: 0.95rem;
-  cursor: pointer;
+  cursor: default;
+  margin-bottom: 10px;
 }
 .question-header label input {
   margin-right: 0.5rem;
@@ -280,4 +279,19 @@
   100% {
     opacity: 0;
   }
+}
+.mc-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: 10px;
+  margin-bottom: 2px !important;
+}
+.mc-checkbox-wrapper input[type="checkbox"] {
+  transform: scale(1.2);
+  margin: 0; /* you can tweak this as you like */
+}
+.mc-checkbox-wrapper label {
+  font-size: 0.95rem;
+  cursor: pointer;
 }

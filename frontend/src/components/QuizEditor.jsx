@@ -3,7 +3,7 @@ import axios from "axios";
 import Spinner from "./Spinner";
 import "../styles/QuizEditor.css";
 import { useNavigate } from "react-router-dom";
-
+import { showToast } from "../components/toast";
 export default function QuizEditor({ quizId, onBack }) {
   const [title, setTitle] = useState("");
   const [topic, setTopic] = useState("");
@@ -79,7 +79,7 @@ export default function QuizEditor({ quizId, onBack }) {
         );
       } catch (err) {
         console.error("MC generation failed:", err);
-        alert("Failed to generate MC options");
+        showToast("Failed to generate MC options");
       }
     }
   };
@@ -128,7 +128,7 @@ export default function QuizEditor({ quizId, onBack }) {
       }, 2000);
     } catch (err) {
       console.error("Save failed:", err);
-      alert("Save failed");
+      showToast("Save failed");
     } finally {
       setSaving(false);
     }
@@ -166,20 +166,21 @@ export default function QuizEditor({ quizId, onBack }) {
         {editedQuestions.map((qa, i) => (
           <div key={i} className="question-card">
             <div className="question-header">
-              <input
-                type="checkbox"
-                checked={qa.type === "mc"}
-                onChange={() => toggleMakeMC(i)}
-                style={{ marginRight: 4 }}
-                id={`mc-checkbox-${i}`}
-              />{" "}
-              <label>Make multi choice</label>
-              <label
-                htmlFor={`mc-checkbox-${i}`}
-                style={{ marginBottom: 0, fontWeight: 500 }}
-              >
+              <span className="question-number-label">
                 Q{i + 1} (
                 {qa.type === "mc" ? "Multiple Choice" : "Open Question"})
+              </span>
+              <label
+                className="mc-checkbox-wrapper"
+                htmlFor={`mc-checkbox-${i}`}
+              >
+                <input
+                  type="checkbox"
+                  checked={qa.type === "mc"}
+                  onChange={() => toggleMakeMC(i)}
+                  id={`mc-checkbox-${i}`}
+                />
+                Make multi choice
               </label>
             </div>
             <div className="question-body">

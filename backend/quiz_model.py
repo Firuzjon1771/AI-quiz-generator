@@ -110,25 +110,60 @@ def export_quiz_pdf(quiz_id, filename=None):
     if not quiz:
         return None
     pdf = FPDF()
+    pdf.set_auto_page_break(auto=True, margin=15)
     pdf.add_page()
+    pdf.set_font("Arial", "B", 14)
+    pdf.cell(0, 10, txt=quiz["title"], ln=True, align="C")
+    pdf.ln(5)
+    if quiz.get("topic"):
+        pdf.set_font("Arial", size=11)
+        pdf.cell(0, 8, txt=f"Topic: {quiz['topic']}", ln=True, align="C")
+        pdf.ln(8)
+
     pdf.set_font("Arial", size=12)
-    pdf.cell(200, 10, txt=quiz["title"], ln=True, align="C")
-    pdf.ln(10)
     for i, qa in enumerate(quiz["questions"], start=1):
         if isinstance(qa, dict):
-            question = qa.get("question", "")
-            answer = qa.get("answer", "")
-        elif isinstance(qa, (list, tuple)) and len(qa) == 2:
-            question, answer = qa
+            question_text = qa.get("question", "").strip()
+            options = qa.get("options", None)
+        elif isinstance(qa, (list, tuple)) and len(qa) >= 1:
+            question_text = qa[0].strip()
+            options = None
         else:
-            question, answer = "", ""
-        pdf.multi_cell(0, 10, f"{i}. Q: {question}")
-        pdf.multi_cell(0, 10, f"   A: {answer}")
+            question_text = str(qa).strip()
+            options = None
+
+        pdf.set_font("Arial", "B", 12)
+        pdf.multi_cell(0, 8, f"{i}. {question_text}")
+        pdf.ln(1)
+
+        if options and isinstance(options, list) and len(options) > 0:
+            pdf.set_font("Arial", size=12)
+            for opt in options:
+                bullet = "o"
+                opt_text = str(opt).strip()
+                pdf.cell(8)  # small left indent
+                pdf.cell(5, 6, bullet)  # the empty circle
+                pdf.cell(3)  # gap between circle and text
+                pdf.multi_cell(0, 6, opt_text)
+                pdf.ln(1)
+            pdf.ln(4)
+        else:
+            pdf.set_font("Arial", size=12)
+            line_width = pdf.get_string_width("__________________________________________________________________")
+            for _ in range(3):
+                x_start = pdf.get_x()
+                y_start = pdf.get_y()
+                pdf.line(x_start, y_start + 2, x_start + line_width, y_start + 2)
+                pdf.ln(8)
+            pdf.ln(4)
+
         pdf.ln(2)
+
     os.makedirs("exports", exist_ok=True)
-    safe_title = quiz["title"].replace(" ", "_")
+    safe_title = quiz["title"].replace(" ", "_").replace("/", "_")
     filename = filename or f"{safe_title}_{quiz_id}.pdf"
     path = os.path.join("exports", filename)
+
     pdf.output(path)
     return path
 

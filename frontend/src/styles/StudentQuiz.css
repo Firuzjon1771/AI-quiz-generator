@@ -1,101 +1,152 @@
 .student-quiz {
-  padding: 1rem 0;
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
 }
+
 .join-panel {
   display: flex;
   gap: 0.5rem;
-  align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .join-panel input {
   flex: 1;
   padding: 0.5rem;
-  border: 1px solid #cbd5e0;
+  border: 1px solid #ccc;
   border-radius: 4px;
 }
 
 .join-panel button {
-  background-color: #4b6cb7;
-  color: #fff;
+  padding: 0.5rem 1rem;
+  background-color: #4299e1;
+  color: white;
   border: none;
-  padding: 0.6rem 1rem;
   border-radius: 4px;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
 }
+
 .join-panel button:hover {
-  background-color: #375a8a;
-  transform: translateY(-1px);
+  background-color: #3182ce;
 }
 
 .error-text {
   color: #e53e3e;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
 }
 
 .quiz-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(780px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
 }
 
 .quiz-card {
-  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #e2e8f0; /* default border color */
   padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  border-radius: 6px;
-  width: 100%;
+  border-radius: 4px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .quiz-card h3 {
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.5rem 0;
 }
 
-.quiz-card.completed {
+.quiz-card p {
+  margin: 0;
+}
+
+/* Buttons inside the quiz card */
+.quiz-card .btn {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+/* Completed quiz card text styling */
+.quiz-card.completed h3 {
+  color: #4a5568;
+}
+
+/* Remove the old static green border for completed cards */
+/* .quiz-card.completed {
   border-left: 4px solid #48bb78;
+} */
+
+/* Instead, use per-score classes to set the border color: */
+.quiz-card.completed.score-red {
+  border-left: 4px solid #e53e3e; /* same as .score-red */
 }
-.quiz-card.completed .score {
-  color: #2f855a;
-  font-weight: bold;
+
+.quiz-card.completed.score-gray {
+  border-left: 4px solid #a0aec0; /* same as .score-gray */
 }
+
+.quiz-card.completed.score-blue {
+  border-left: 4px solid #4299e1; /* same as .score-blue */
+}
+
+.quiz-card.completed.score-yellow {
+  border-left: 4px solid #ecc94b; /* same as .score-yellow */
+}
+
+.quiz-card.completed.score-green {
+  border-left: 4px solid #2f855a; /* same as .score-green */
+}
+
+/* Score text colors */
 .score-red {
-  color: #e53e3e !important;
-  font-weight: bold;
+  color: #e53e3e;
 }
+
 .score-gray {
-  color: #a0aec0 !important;
-  font-weight: bold;
+  color: #a0aec0;
 }
+
 .score-blue {
-  color: #4299e1 !important;
-  font-weight: bold;
+  color: #4299e1;
 }
+
 .score-yellow {
-  color: #ecc94b !important;
-  font-weight: bold;
+  color: #ecc94b;
 }
+
 .score-green {
-  color: #2f855a !important;
-  font-weight: bold;
+  color: #2f855a;
 }
+
+/* Submitted‐date tooltip styling */
 .submitted-date {
-  cursor: help;
-  text-decoration: underline dotted #6b7280 1.5px;
   position: relative;
-  display: inline-block;
-  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #718096;
 }
-.custom-tooltip .tooltip-content {
-  display: block;
-  background: #1a202c;
-  color: #fff;
-  padding: 6px 13px;
-  border-radius: 7px;
-  font-size: 0.93rem;
+
+.tooltip-content {
+  background: rgba(55, 65, 81, 0.9);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
   white-space: nowrap;
-  box-shadow: 0 6px 20px rgba(30, 30, 70, 0.14);
-  animation: fadeIn 0.2s;
-  pointer-events: none;
-  max-width: 150px;
+  z-index: 10;
+}
+
+/* Preview button inside completed quizzes */
+.preview-btn {
+  background-color: #4299e1;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.preview-btn:hover {
+  background-color: #38a169;
 }
