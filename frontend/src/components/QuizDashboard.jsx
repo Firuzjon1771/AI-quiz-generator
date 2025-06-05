@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/QuizDashboard.css";
-
-const CLASS_OPTIONS = ["A", "B", "C", "D"];
+import { showToast } from "../components/toast";
 
 export default function QuizDashboard({ onEdit }) {
   const navigate = useNavigate();
@@ -25,10 +24,6 @@ export default function QuizDashboard({ onEdit }) {
   const [students, setStudents] = useState([]);
   const [loadingStudents, setLoadingStudents] = useState(false);
   const teacherId = JSON.parse(localStorage.getItem("user"))?.username;
-  const showToast = (msg) => {
-    setNotification(msg);
-    setTimeout(() => setNotification(""), 3000);
-  };
 
   useEffect(() => {
     fetchLists();
@@ -75,11 +70,11 @@ export default function QuizDashboard({ onEdit }) {
       await axios.post(
         `/api/quiz/${quizId}/${makeActive ? "activate" : "deactivate"}`
       );
-      showToast(`Quiz ${makeActive ? "activated" : "deactivated"}`);
+      showToast(`Quiz ${makeActive ? "activated" : "deactivated"}`, "success");
       fetchLists();
     } catch (err) {
       console.error(err);
-      showToast("Operation failed");
+      showToast("Operation failed", "error");
     }
   };
 
@@ -138,10 +133,10 @@ export default function QuizDashboard({ onEdit }) {
         due_at: modalDueAt,
         time_limit: Number(modalTimeLimit) * 60,
       });
-      showToast(`Assigned to student`);
+      showToast(`Assigned to student ${id} successfully`, "success");
       closeStudentModal();
     } catch {
-      showToast("Assignment failed");
+      showToast("Assignment failed", "error");
     }
   };
 
@@ -178,7 +173,7 @@ export default function QuizDashboard({ onEdit }) {
   }
   const confirmAssignClass = async () => {
     if (!modalClassId) {
-      showToast("Select a class first.");
+      showToast("Select a class first.", "warning");
       return;
     }
     try {
@@ -189,12 +184,13 @@ export default function QuizDashboard({ onEdit }) {
         time_limit: Number(modalTimeLimit) * 60,
       });
       showToast(
-        `Quiz ${selectedQuizForClass.title} assigned to class ${modalClassId}`
+        `Quiz ${selectedQuizForClass.title} assigned to class ${modalClassId}`,
+        "success"
       );
       closeClassModal();
     } catch (err) {
       console.error(err);
-      showToast("Failed to assign quiz to class.");
+      showToast("Failed to assign quiz to class.", "error");
     }
   };
 

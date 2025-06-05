@@ -41,7 +41,7 @@ export default function SaveQuiz({ approved, topic, onSave }) {
         );
       } catch (err) {
         console.error("MC generation failed:", err);
-        showToast("Failed to generate MC options");
+        showToast("Failed to generate MC options", "error");
         setEdited((prev) =>
           prev.map((q, i) =>
             i === idx ? { ...q, type: "open", options: [] } : q
@@ -90,11 +90,11 @@ export default function SaveQuiz({ approved, topic, onSave }) {
         topic,
         questions: qs,
       });
-      showToast("Saved quiz id " + data.quiz_id);
+      showToast("Saved quiz id " + data.quiz_id, "success");
       onSave?.(data.quiz_id);
     } catch (err) {
       console.error(err);
-      showToast("Save failed");
+      showToast("Save failed", "error");
     }
   };
 

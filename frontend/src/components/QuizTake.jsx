@@ -45,7 +45,7 @@ export default function QuizTake({ studentId }) {
     if (!quiz || timedOut) return;
     if (timeLeft <= 0) {
       setTimedOut(true);
-      showToast("Time’s up! Auto-submitting…");
+      showToast("Time’s up! Auto-submitting…", "warning");
       doSubmit();
       return;
     }

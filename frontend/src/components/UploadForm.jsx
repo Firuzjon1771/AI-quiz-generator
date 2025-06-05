@@ -84,7 +84,7 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
         setTopicJsonMap(obj);
         setSelectedJsonTopic("");
       } catch {
-        showToast("Invalid JSON file");
+        showToast("Invalid JSON file", "warning");
       }
     };
     reader.readAsText(f);
@@ -100,6 +100,15 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!text.trim() && !file) {
+      showToast(
+        "Please paste or upload your text before generating.",
+        "warning"
+      );
+      return;
+    }
+
     setLoading(true);
 
     let content = text;
@@ -113,7 +122,7 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
         content = up.data.text;
         setText(content);
       } catch {
-        showToast("Upload failed");
+        showToast("Upload failed", "error");
         setLoading(false);
         return;
       }
@@ -127,10 +136,11 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
         const scoresObj = detection.Scores || {};
         const allScores = Object.values(scoresObj).map((v) => Number(v) || 0);
         const maxScore = allScores.length ? Math.max(...allScores) : 0;
-        if (!detection.Primary || maxScore === 0) {
+        if (!detection.Primary || maxScore < 3) {
           showToast(
             "Unable to detect a meaningful topic from your text. " +
-              "Please enter a clearer scientific passage or pick a topic manually."
+              "Please enter a clearer scientific passage or pick a topic manually.",
+            "error"
           );
           setLoading(false);
           return;
@@ -142,19 +152,19 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
     } else {
       if (isJsonBranch) {
         if (!selectedJsonTopic) {
-          showToast("Please choose a topic from your JSON.");
+          showToast("Please choose a topic from your JSON.", "warning");
           setLoading(false);
           return;
         }
         topicToUse = selectedJsonTopic;
       } else {
         if (!effectiveTopic) {
-          showToast("Please enter or pick a topic.");
+          showToast("Please enter or pick a topic.", "warning");
           setLoading(false);
           return;
         }
         if (isNewTopic && selectedKeywords.length === 0) {
-          showToast("New topic → please enter ≥1 keyword.");
+          showToast("New topic → please enter ≥1 keyword.", "warning");
           setLoading(false);
           return;
         }
@@ -206,7 +216,8 @@ export default function UploadForm({ setTopic, setSummary, setQuestions }) {
     } catch (err) {
       console.error(err);
       showToast(
-        "Generation failed: " + (err.response?.data?.error || err.message)
+        "Generation failed: " + (err.response?.data?.error || err.message),
+        "error"
       );
     } finally {
       setLoading(false);

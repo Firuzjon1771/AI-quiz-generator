@@ -9,7 +9,6 @@ export default function QuizEditor({ quizId, onBack }) {
   const [topic, setTopic] = useState("");
   const [editedQuestions, setEditedQuestions] = useState([]);
   const [saving, setSaving] = useState(false);
-  const [showToast, setShowToast] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -79,7 +78,7 @@ export default function QuizEditor({ quizId, onBack }) {
         );
       } catch (err) {
         console.error("MC generation failed:", err);
-        showToast("Failed to generate MC options");
+        showToast("Failed to generate MC options", "error");
       }
     }
   };
@@ -121,14 +120,13 @@ export default function QuizEditor({ quizId, onBack }) {
         topic,
         questions: payloadQs,
       });
-      setShowToast(true);
-      setTimeout(() => setShowToast(false), 2000);
+      showToast("Quiz was saved", "success");
       setTimeout(() => {
         navigate("/quizzes"); // Navigates to quizzes page after save
       }, 2000);
     } catch (err) {
       console.error("Save failed:", err);
-      showToast("Save failed");
+      showToast("Save failed", "error");
     } finally {
       setSaving(false);
     }
@@ -136,7 +134,6 @@ export default function QuizEditor({ quizId, onBack }) {
 
   return (
     <div className="quiz-editor">
-      {showToast && <div className="toast-notification">Quiz was saved</div>}
       <button onClick={() => navigate("/quizzes")} className="back-button">
         ← Back
       </button>

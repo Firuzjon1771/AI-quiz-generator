@@ -40,7 +40,7 @@ const QuestionReview = ({ questions, topic, onSave }) => {
         list[idx].options = data.options;
       } catch (err) {
         console.error("MC generate error:", err);
-        showToast("Failed to generate options");
+        showToast("Failed to generate options", "error");
         list[idx].mcEnabled = false;
       }
     } else {
@@ -83,7 +83,7 @@ const QuestionReview = ({ questions, topic, onSave }) => {
       questions: payloadQs,
     });
 
-    showToast(`Quiz saved with ID: ${saveRes.data.quiz_id}`);
+    showToast(`Quiz saved with ID: ${saveRes.data.quiz_id}`, "success");
     onSave && onSave(saveRes.data.quiz_id);
   };
 

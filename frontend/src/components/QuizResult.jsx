@@ -54,7 +54,11 @@ export default function QuizResult() {
           <span style={{ fontSize: 22, color: "#22577a" }}>Score: {score}</span>
         )}
       </h2>
-      <button className="btn preview-btn" onClick={() => navigate(-1)}>
+      <button
+        className="btn preview-btn"
+        style={{ marginBottom: 12 }}
+        onClick={() => navigate(-1)}
+      >
         Back
       </button>
       <div className="quiz-list">

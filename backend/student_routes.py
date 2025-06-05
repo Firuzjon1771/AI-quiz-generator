@@ -131,7 +131,9 @@ def register_student_routes(app):
             "SELECT student_id AS student_id, name, surname, email, class_id, role FROM students WHERE student_id=?",
             (sid,),
         ).fetchone()
-        return jsonify(dict(row)), 201
+        data = dict(row)
+        data["role"] = "student"
+        return jsonify(data), 201
 
     @app.route("/api/teacher/register", methods=["POST"])
     def register_teacher():
@@ -163,7 +165,9 @@ def register_student_routes(app):
             "SELECT teacher_id AS username, name, surname, email FROM teachers WHERE teacher_id=?",
             (tid,),
         ).fetchone()
-        return jsonify(dict(row)), 201
+        data = dict(row)
+        data["role"] = "teacher"
+        return jsonify(data), 201
 
     @app.route("/api/classes", methods=["GET"])
     def get_classes():
