@@ -74,7 +74,7 @@ const App = () => {
                     ) : (
                       <>
                         <div className="dashboard-wrapper">
-                          <h2 className="section-title">Ai quizz Generator</h2>
+                          <h2 className="section-title">AI quizz Generator</h2>
                           <UploadForm
                             setTopic={setTopic}
                             setSummary={setSummary}

@@ -9,7 +9,7 @@ export default function Navbar({ onLogout, user, onDashboardClick }) {
   return (
     <header className="navbar">
       <div className="navbar-container">
-        <h1 className="navbar-title">AI Quiz Platform</h1>
+        <h1 className="navbar-title">AI Quiz Generator</h1>
         <nav className="navbar-nav">
           {user.role === "teacher" && (
             <>
