@@ -578,18 +578,10 @@ ai-quiz-generator/
 
 ---
 
-## Contributing
-
-1. Fork the repo.
-2. Create a new branch: `git checkout -b feature/your-feature`.
-3. Make changes and commit: `git commit -m "Add new feature"`.
-4. Push to your branch: `git push origin feature/your-feature`.
-5. Open a Pull Request.
-
-Please ensure code is well-documented and tests (if any) pass before submitting.
-
----
-
 ## License
 
-This project is released under the MIT License. See [LICENSE](LICENSE) for details.
+This project is open source and licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+## Author
+
+Project was implemented by student of the Slovak University of Technology in Bratislava, Faculty of Electrical Engineering and Information Technology, Department of Informatics - Firuzjon Mahmudov
