@@ -423,22 +423,22 @@ Content preview: "Computer networks interconnect devices..."
 
 The backend provides the following endpoints:
 
-| Path                 | Method | Input                                      | Output                                       | Purpose                                        |
-| -------------------- | ------ | ------------------------------------------ | -------------------------------------------- | ---------------------------------------------- |
-| `/api/register`      | POST   | `{ username, password, role }`             | `{ user_id, message }`                       | Create new user (teacher or student)           |
-| `/api/login`         | POST   | `{ username, password }`                   | `{ token, role }` or session cookie          | Authenticate and obtain token/cookie           |
-| `/api/detect`        | POST   | `{ text }`                                 | `{ primary, scores }`                        | Detect main topic using TF-IDF + spaCy         |
-| `/api/quiz/generate` | POST   | `{ text, topic, openCount, mcCount }`      | `{ questions: [ ... ] }`                     | Generate open-ended and MC questions (FLAN-T5) |
-| `/api/quizzes`       | POST   | `{ title, questions[], class_id, topic }`  | `{ quiz_id }`                                | Save a new quiz                                |
-| `/api/quizzes`       | GET    | –                                          | `[ { quiz_id, title, topic, created_at } ]`  | List all quizzes                               |
-| `/api/assignments`   | POST   | `{ quiz_id, class_id, deadline }`          | `{ assignment_id }`                          | Assign a quiz to a class                       |
-| `/api/assignments`   | GET    | `?class_id=...`                            | `[ { assignment_id, quiz_id, deadline } ]`   | List assignments for a class                   |
-| `/api/classes`       | GET    | –                                          | `[ { class_id, students: [ ... ] } ]`        | List all classes with students                 |
-| `/api/students`      | POST   | `{ student_id, name, email, class_id }`    | `{ student_id }`                             | Add a new student                              |
-| `/api/grade`         | POST   | `{ assignment_id, student_id, answers[] }` | `{ score, feedback: [ ... ] }`               | Grade student quiz submissions                 |
-| `/api/results`       | GET    | `?student_id=...`                          | `[ { assignment_id, score, submitted_at } ]` | Get a student’s quiz results                   |
-| `/api/topics`        | GET    | –                                          | `{ topic: [ keywords ] }`                    | Retrieve built-in topics and keywords          |
-| `/api/topics/add`    | POST   | `{ topic, keywords[] }`                    | `{ message }`                                | Add or update topic-keyword mapping            |
+| Path                                         | Method | Input                                      | Output                                       | Purpose                                        |
+| -------------------------------------------- | ------ | ------------------------------------------ | -------------------------------------------- | ---------------------------------------------- |
+| `/api/register`                              | POST   | `{ username, password, role }`             | `{ user_id, message }`                       | Create new user (teacher or student)           |
+| `/api/login`                                 | POST   | `{ username, password }`                   | `{ token, role }` or session cookie          | Authenticate and obtain token/cookie           |
+| `/api/detect`                                | POST   | `{ text }`                                 | `{ primary, scores }`                        | Detect main topic using TF-IDF + spaCy         |
+| `/api/quiz/generate`                         | POST   | `{ text, topic, openCount, mcCount }`      | `{ questions: [ ... ] }`                     | Generate open-ended and MC questions (FLAN-T5) |
+| `/api/quizzes`                               | POST   | `{ title, questions[], class_id, topic }`  | `{ quiz_id }`                                | Save a new quiz                                |
+| `/api/quizzes`                               | GET    | –                                          | `[ { quiz_id, title, topic, created_at } ]`  | List all quizzes                               |
+| `/api/assignments`                           | POST   | `{ quiz_id, class_id, deadline }`          | `{ assignment_id }`                          | Assign a quiz to a class                       |
+| `/api/assignments`                           | GET    | `?class_id=...`                            | `[ { assignment_id, quiz_id, deadline } ]`   | List assignments for a class                   |
+| `/api/classes`                               | GET    | –                                          | `[ { class_id, students: [ ... ] } ]`        | List all classes with students                 |
+| `/api/students`                              | POST   | `{ student_id, name, email, class_id }`    | `{ student_id }`                             | Add a new student                              |
+| `/api/student/${studentId}/submit`           | POST   | `{ assignment_id, student_id, answers[] }` | `{ score, feedback: [ ... ] }`               | Grade student quiz submissions                 |
+| `api/assignment/${int:assignment_id}/result` | GET    | `?ssignment_id=...`                        | `[ { assignment_id, score, submitted_at } ]` | Get a student’s quiz results                   |
+| `/api/topics`                                | GET    | –                                          | `{ topic: [ keywords ] }`                    | Retrieve built-in topics and keywords          |
+| `/api/topics/add`                            | POST   | `{ topic, keywords[] }`                    | `{ message }`                                | Add or update topic-keyword mapping            |
 
 ---
 
